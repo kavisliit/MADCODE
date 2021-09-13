@@ -13,6 +13,9 @@
             android:name=".kaveenkg"
             android:exported="true" />
         <activity
+            android:name=".sharebook"
+            android:exported="true" />
+        <activity
             android:name=".My_Article"
             android:exported="true" />
         <activity android:name=".MainActivity">
