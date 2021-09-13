@@ -11,9 +11,6 @@
         android:theme="@style/Theme.MADCODE">
         <activity android:name=".Eventmain"></activity>
         <activity
-            android:name=".sharebook"
-            android:exported="true"/>
-        <activity
             android:name=".Sudewa"
             android:exported="true" />
         <activity
