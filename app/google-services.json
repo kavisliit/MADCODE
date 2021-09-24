@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "582356116970",
+    "firebase_url": "https://madcode-2bb54-default-rtdb.firebaseio.com",
+    "project_id": "madcode-2bb54",
+    "storage_bucket": "madcode-2bb54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:582356116970:android:000f3b725e1c3748f5fe93",
+        "android_client_info": {
+          "package_name": "com.example.madcode"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "582356116970-7rcti5f43bphrs1daot5vl3t791aamdc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSoSDkEuMrQBdsxzqbsHDkU6JKCYMkD5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "582356116970-7rcti5f43bphrs1daot5vl3t791aamdc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
