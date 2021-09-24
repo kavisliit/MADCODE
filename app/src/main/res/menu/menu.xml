@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:title="Home"
+            android:id="@+id/home"/>
+
+        <item
+            android:title="instragram"
+            android:id="@+id/ig"/>
+
+        <item
+            android:title="youtube"
+            android:id="@+id/yt"/>
+
+    </group>
+    <item
+        android:title="contact us">
+    <menu>
+
+        <item
+            android:title="message"
+            android:id="@+id/msg"/>
+
+        <item
+            android:title="email"
+            android:id="@+id/em"/>
+
+        <item
+            android:title="call"
+            android:id="@+id/call"/>
+
+
+    </menu>
+
+    </item>
+</menu>
