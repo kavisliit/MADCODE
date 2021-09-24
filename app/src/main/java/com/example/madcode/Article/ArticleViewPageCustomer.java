@@ -1,4 +1,4 @@
-package com.example.madcode;
+package com.example.madcode.Article;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.madcode.R;
 
 public class ArticleViewPageCustomer extends AppCompatActivity {
 

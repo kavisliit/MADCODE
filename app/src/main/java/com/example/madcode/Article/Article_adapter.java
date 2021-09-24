@@ -1,4 +1,4 @@
-package com.example.madcode;
+package com.example.madcode.Article;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -12,16 +12,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.madcode.Article.Model.ArticleModel;
+import com.example.madcode.R;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class Article_adapter_customer extends RecyclerView.Adapter<Article_adapter_customer.MyViewHolder> {
+
+public class Article_adapter extends RecyclerView.Adapter<Article_adapter.MyViewHolder>{
     Context con;
     ArrayList<ArticleModel> list;
-    private static Article_adapter_customer.RecyclerViewClickListner listner;
-    public Article_adapter_customer(Context con, ArrayList<ArticleModel> list, Article_adapter_customer.RecyclerViewClickListner listner) {
+    private static RecyclerViewClickListner listner;
+    public Article_adapter(Context con, ArrayList<ArticleModel> list, RecyclerViewClickListner listner) {
         this.listner = listner;
         this.con = con;
         this.list = list;
@@ -29,12 +32,12 @@ public class Article_adapter_customer extends RecyclerView.Adapter<Article_adapt
     @NonNull
     @org.jetbrains.annotations.NotNull
     @Override
-    public Article_adapter_customer.MyViewHolder onCreateViewHolder(@NonNull @org.jetbrains.annotations.NotNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull @org.jetbrains.annotations.NotNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(con).inflate(R.layout.article_single_event,parent,false);
-        return new Article_adapter_customer.MyViewHolder(v);
+        return new MyViewHolder(v);
     }
     @Override
-    public void onBindViewHolder(@NonNull @NotNull Article_adapter_customer.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull @NotNull Article_adapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         ArticleModel ob = list.get(position);
         holder.Head_line.setText(ob.getHead_line());
