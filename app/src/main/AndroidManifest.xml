@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.madcode">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,9 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MADCODE">
-        <activity android:name=".Eventmain"></activity>
+        <activity android:name=".Events.My_event_edit" />
+        <activity android:name=".Events.My_event_profile" />
+        <activity android:name=".Events.my_event_list" />
+        <activity android:name=".Events.event_member_list" />
+        <activity android:name=".Events.user_events" />
+        <activity android:name=".User.Forget_password" />
+        <activity android:name=".User.user_profile" />
+        <activity android:name=".login" />
+        <activity android:name=".User.user_registration" />
+        <activity android:name=".nav_activity" />
+        <activity android:name=".Events.event_profile" />
+        <activity android:name=".Eventmain" />
         <activity
             android:name=".Sudewa"
+            android:exported="true" />
+        <activity
+            android:name=".Events.Add_Event"
             android:exported="true" />
         <activity
             android:name=".kaveenkg"
@@ -29,6 +45,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

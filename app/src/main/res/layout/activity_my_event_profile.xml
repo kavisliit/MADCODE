@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Events.My_event_profile">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/my_event_selected_pic"
+        android:layout_width="198dp"
+        android:layout_height="158dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/my_event_mem"
+        android:layout_width="160dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="TextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/my_event_type" />
+
+    <TextView
+        android:id="@+id/my_event_mem_cur"
+        android:layout_width="92dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="TextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textView23"
+        app:layout_constraintTop_toBottomOf="@+id/my_event_mem" />
+
+    <TextView
+        android:id="@+id/my_event_name"
+        android:layout_width="162dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="TextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/my_event_selected_pic" />
+
+    <TextView
+        android:id="@+id/my_event_date"
+        android:layout_width="155dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="TextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/my_event_name"
+        app:layout_constraintTop_toBottomOf="@+id/my_event_name" />
+
+    <TextView
+        android:id="@+id/my_event_time"
+        android:layout_width="158dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="TextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/my_event_date"
+        app:layout_constraintTop_toBottomOf="@+id/my_event_date" />
+
+    <TextView
+        android:id="@+id/my_event_venue"
+        android:layout_width="158dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="TextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/my_event_time"
+        app:layout_constraintTop_toBottomOf="@+id/my_event_time" />
+
+    <TextView
+        android:id="@+id/my_event_type"
+        android:layout_width="158dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="TextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/my_event_venue"
+        app:layout_constraintTop_toBottomOf="@+id/my_event_venue" />
+
+    <ImageView
+        android:id="@+id/my_event_edit_btn"
+        android:layout_width="50dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintStart_toEndOf="@+id/my_event_selected_pic"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_edit_24" />
+
+    <ImageView
+        android:id="@+id/my_event_delete_btn"
+        android:layout_width="45dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="@+id/my_event_edit_btn"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="@+id/my_event_edit_btn"
+        app:layout_constraintTop_toBottomOf="@+id/my_event_edit_btn"
+        app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="96dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/evenT_view_name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/my_event_name" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="111dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/max_mem_ev"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="162dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/cur_user"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="96dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/type_ev"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="96dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/venue_ev"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView21"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="96dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/Time_ev"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="96dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/ev_date"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
