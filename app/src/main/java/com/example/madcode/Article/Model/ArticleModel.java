@@ -1,4 +1,4 @@
-package com.example.madcode;
+package com.example.madcode.Article.Model;
 
 public class ArticleModel
 {
