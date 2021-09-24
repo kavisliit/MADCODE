@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="50dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        tools:context=".Events.Add_Event">
+
+
+        <TextView
+            android:id="@+id/tw_1"
+            android:layout_width="243dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/create_event"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/ptext1"
+            android:layout_width="294dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/forget"
+            android:ems="10"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/get_name"
+            android:inputType="textPersonName"
+            android:padding="9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tw_1" />
+
+        <EditText
+            android:id="@+id/ptext2"
+            android:layout_width="294dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/forget"
+            android:ems="10"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/get_event_type"
+            android:inputType="textPersonName"
+            android:padding="9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ptext1" />
+
+
+        <EditText
+            android:id="@+id/ptext6"
+            android:layout_width="287dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/forget"
+            android:ems="10"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/event_time"
+            android:inputType="time"
+            android:padding="9dp"
+            app:layout_constraintEnd_toEndOf="@+id/ptext5"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/ptext5"
+            app:layout_constraintTop_toBottomOf="@+id/ptext5" />
+
+        <EditText
+            android:id="@+id/ptext5"
+            android:layout_width="287dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/forget"
+            android:ems="10"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/event_date"
+            android:inputType="date"
+            android:padding="9dp"
+            app:layout_constraintEnd_toEndOf="@+id/ptext2"
+            app:layout_constraintHorizontal_bias="0.428"
+            app:layout_constraintStart_toStartOf="@+id/ptext2"
+            app:layout_constraintTop_toBottomOf="@+id/ptext2" />
+
+
+      <!--  <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="286dp"
+            android:layout_height="176dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/ptext4"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/ptext4"
+            app:layout_constraintTop_toBottomOf="@+id/ptext4"
+            app:srcCompat="@drawable/ic_launcher_background"
+            tools:ignore="MissingConstraints,VectorDrawableCompat" />
+
+        <Button
+            android:id="@+id/btnbrowse"
+            android:layout_width="120dp"
+            android:layout_height="52dp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/add_event_img"
+            app:layout_constraintBottom_toTopOf="@+id/create_btn"
+            app:layout_constraintTop_toBottomOf="@+id/image_view"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="49dp" />
+
+        <Button
+            android:id="@+id/upload_btn"
+            android:layout_width="120dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/eve_img_up"
+            app:layout_constraintBottom_toTopOf="@+id/create_btn"
+            app:layout_constraintStart_toEndOf="@+id/btnbrowse"
+            app:layout_constraintTop_toBottomOf="@+id/image_view"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" /> -->
+
+        <Button
+            android:id="@+id/create_btn"
+            android:layout_width="209dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="44dp"
+            android:text="@string/event_create_btn"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="@color/main_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.521"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/get_event_uri" />
+
+        <EditText
+            android:id="@+id/get_event_uri"
+            android:layout_width="289dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/forget"
+            android:ems="10"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/uri_event_get"
+            android:inputType="number"
+            android:padding="9dp"
+            app:layout_constraintEnd_toEndOf="@+id/ptext3"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/mem_ex"
+            app:layout_constraintTop_toBottomOf="@+id/mem_ex" />
+
+        <EditText
+            android:id="@+id/mem_ex"
+            android:layout_width="289dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/forget"
+            android:ems="10"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/event_members"
+            android:inputType="number"
+            android:padding="9dp"
+            app:layout_constraintEnd_toEndOf="@+id/ptext3"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/ptext3"
+            app:layout_constraintTop_toBottomOf="@+id/ptext3" />
+
+        <EditText
+            android:id="@+id/ptext3"
+            android:layout_width="286dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/forget"
+            android:ems="10"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/event_venue"
+            android:inputType="textPersonName"
+            android:padding="9dp"
+            app:layout_constraintEnd_toEndOf="@+id/ptext6"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/ptext6"
+            app:layout_constraintTop_toBottomOf="@+id/ptext6" />
+
+        <Button
+            android:id="@+id/back_btn"
+            android:layout_width="93dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:text="Button"
+            app:layout_constraintStart_toStartOf="@+id/create_btn"
+            app:layout_constraintTop_toBottomOf="@+id/create_btn" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
