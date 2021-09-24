@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txt_head_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_marginLeft="85dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="128dp"
+            android:layout_marginRight="128dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/txt_update_head"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView16"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pngtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/update_pngtxt"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/update_purl" />
+
+        <ImageView
+            android:id="@+id/inputimage"
+            android:layout_width="114dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_head_edit"
+            app:srcCompat="@drawable/urlicon" />
+
+
+        <EditText
+            android:id="@+id/update_Small_description"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/forget"
+            android:ems="10"
+            android:hint="Small description"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:text="@string/update_small_descri_input_txt"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/update_Head_line"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/backbttn"
+            app:layout_constraintBottom_toTopOf="@+id/inputimage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="ImageContrastCheck" />
+
+
+        <EditText
+            android:id="@+id/update_Sub_topic"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/forget"
+            android:ems="10"
+            android:hint="Sub topic/ Sub name"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:text="@string/update_sub_topic_input_txt"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/update_Small_description"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/update_purl"
+            android:layout_width="170dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/forget"
+            android:ems="10"
+            android:hint="Profile Image URL"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputimage"/>
+
+        <EditText
+            android:id="@+id/update_Head_line"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/forget"
+            android:ems="10"
+            android:hint="Head line"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:text="@string/update_head_line_input_txt"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pngtxt"
+            tools:ignore="TouchTargetSizeCheck"/>
+
+
+        <EditText
+            android:id="@+id/update_Description"
+            android:layout_width="299dp"
+            android:layout_height="124dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/forget"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Description"
+            android:inputType="textMultiLine"
+            android:text="@string/update_description_input_txt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/update_Sub_topic" />
+
+        <Button
+            android:id="@+id/update_submit"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/update_Complete_btn"
+            app:backgroundTint="#00AF5D"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/update_Description" />
+
+        <Button
+            android:id="@+id/update_back"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/update_Cancel_btn"
+            app:backgroundTint="#00AF5D"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.537"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/update_submit"
+            app:layout_constraintVertical_bias="0.006" />
+
+        <ImageButton
+            android:id="@+id/update_deletebutton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:backgroundTintMode="screen"
+            android:contentDescription="TODO"
+            android:scaleType="centerCrop"
+            android:src="@drawable/deletebtn"
+            app:layout_constraintBottom_toTopOf="@+id/inputimage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.764"
+            app:layout_constraintStart_toEndOf="@+id/txt_head_edit"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

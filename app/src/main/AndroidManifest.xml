@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MADCODE">
+
         <activity android:name=".Events.My_event_edit" />
         <activity android:name=".Events.My_event_profile" />
         <activity android:name=".Events.my_event_list" />
@@ -22,6 +23,20 @@
         <activity android:name=".User.user_registration" />
         <activity android:name=".nav_activity" />
         <activity android:name=".Events.event_profile" />
+
+        <activity
+            android:name=".Article.ArticleMainPageCustomer"
+            android:exported="true" />
+        <activity
+            android:name=".Article.ArticleViewPageCustomer"
+            android:exported="true" />
+        <activity
+            android:name=".Article.Article_update_page"
+            android:exported="true" />
+        <activity
+            android:name=".Article.MyArticleCreate"
+            android:exported="true" />
+
         <activity android:name=".Eventmain" />
         <activity
             android:name=".Sudewa"
@@ -36,7 +51,7 @@
             android:name=".sharebook"
             android:exported="true" />
         <activity
-            android:name=".My_Article"
+            android:name=".Article.My_Article"
             android:exported="true" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -45,6 +60,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".Article.ArticleViewPage" />
+
 
         <meta-data
             android:name="preloaded_fonts"

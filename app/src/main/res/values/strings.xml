@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">MADCODE</string>
+
     <string name="create_event">Create an Event</string>
     <string name="get_name">Enter the Name</string>
     <string name="get_event_type">Enter Event Type</string>
@@ -36,6 +37,7 @@
     <string name="enter_em">Enter your Email</string>
     <string name="reg_user">Register</string>
     <string name="cr_by">Created By</string>
+  
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ev_name">Event Name</string>
@@ -63,4 +65,30 @@
     <string name="max_mem_ev">Max Members</string>
     <string name="cur_user">Current Memebers</string>
     <string name="uri_event_get">Pic URL</string>
+
+    <string name="create_head">Edit Article</string>
+    <string name="image_upload">" Image Upload"</string>
+    <string name="head_line_input_txt" />
+    <string name="sub_topic_input_txt" />
+    <string name="small_descri_input_txt" />
+    <string name="description_input_txt" />
+    <string name="pngtxt">Add Image Url</string>
+    <string name="Complete_btn">Complete</string>
+    <string name="Cancel_btn">Back</string>
+
+    <string name="My_Article">My Article</string>
+
+    <string name="txt_update_head">Update Article</string>
+    <string name="update_Cancel_btn">Back</string>
+    <string name="update_Complete_btn">complete</string>
+    <string name="update_description_input_txt" />
+    <string name="update_head_line_input_txt" />
+    <string name="update_sub_topic_input_txt" />
+    <string name="update_small_descri_input_txt" />
+    <string name="update_pngtxt">Add Image Url</string>
+    <string name="todo">TODO</string>
+    <string name="Articles_Head">Articles</string>s
+
+
+
 </resources>

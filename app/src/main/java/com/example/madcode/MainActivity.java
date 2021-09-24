@@ -1,6 +1,8 @@
 package com.example.madcode;
 
-import android.os.Bundle;
+
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends nav_activity {
 
@@ -10,4 +12,6 @@ public class MainActivity extends nav_activity {
        setContentView(R.layout.activity_main);
 
     }
+
+
 }
