@@ -79,20 +79,6 @@ public class Article_update_page extends AppCompatActivity {
             }
         });
 
-//        //Delete button
-//        deleteBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FirebaseDatabase.getInstance().getReference("ArticleModel").child(AID).removeValue(new DatabaseReference.CompletionListener() {
-//                    @Override
-//                    public void onComplete(@Nullable @org.jetbrains.annotations.Nullable DatabaseError error, @NonNull @NotNull DatabaseReference ref) {
-//                        Toast.makeText(Article_update_page.this, "deleted succesfully", Toast.LENGTH_SHORT).show();
-//                        Intent in = new Intent(Article_update_page.this,My_Article.class);
-//                        startActivity(in);
-//                    }
-//                });
-//            }
-//        });
 
         //Delete button
         deleteBtn.setOnClickListener(new View.OnClickListener() {
@@ -159,7 +145,10 @@ public class Article_update_page extends AppCompatActivity {
             }
         });
 
-
+    }
+    public void EditToMyArticlePage(View view){
+        Intent intent = new Intent(Article_update_page.this,My_Article.class);
+        startActivity(intent);
     }
 }
 

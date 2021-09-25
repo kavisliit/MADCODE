@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MADCODE</string>
+    <string name="app_name">Pick a Book</string>
 
     <string name="create_event">Create an Event</string>
     <string name="get_name">Enter the Name</string>
