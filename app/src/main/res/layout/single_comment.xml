@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/comment_image"
+            android:layout_width="86dp"
+            android:layout_height="69dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/edit_user" />
+
+        <TextView
+            android:id="@+id/comment_name"
+            android:layout_width="175dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginLeft="44dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/comment_image"
+            app:layout_constraintTop_toTopOf="@+id/comment_image" />
+
+        <TextView
+            android:id="@+id/comment_comment"
+            android:layout_width="203dp"
+            android:layout_height="43dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/comment_name"
+            app:layout_constraintTop_toBottomOf="@+id/comment_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
