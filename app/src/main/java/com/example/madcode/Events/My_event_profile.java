@@ -1,5 +1,7 @@
 package com.example.madcode.Events;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,20 +15,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.madcode.R;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import org.jetbrains.annotations.NotNull;
-
-import es.dmoral.toasty.Toasty;
+import com.google.firebase.database.ValueEventListener;
 
 public class My_event_profile extends AppCompatActivity {
 
-    TextView tname,tdate,ttime,ttype,tmem,tvenue;
+    TextView tname,tdate,ttime,ttype,tmem,tvenue,tcur;
     String eid,cid,name,date,time,venue,mem,type,uri;
     ImageView edit,delete,img;
     DatabaseReference db;
+    int count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,7 @@ public class My_event_profile extends AppCompatActivity {
         edit = findViewById(R.id.my_event_edit_btn);
         delete = findViewById(R.id.my_event_delete_btn);
         img = findViewById(R.id.my_event_selected_pic);
+        tcur= findViewById(R.id.my_event_mem_cur);
 
 
         Bundle extras = getIntent().getExtras();
@@ -70,6 +72,21 @@ public class My_event_profile extends AppCompatActivity {
 
         }
 
+        String newid = eid +"g";
+        db= FirebaseDatabase.getInstance().getReference("Event_Group").child(newid);
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                count = (int) snapshot.getChildrenCount();
+                tcur.setText(String.valueOf(count));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,19 +106,51 @@ public class My_event_profile extends AppCompatActivity {
             }
         });
 
+//        delete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                FirebaseDatabase.getInstance().getReference("Events").child(eid).removeValue(new DatabaseReference.CompletionListener() {
+//                    @Override
+//                    public void onComplete(@Nullable @org.jetbrains.annotations.Nullable DatabaseError error, @NonNull @NotNull DatabaseReference ref) {
+//                        Toasty.success(My_event_profile.this, "deleted succesfully", Toast.LENGTH_SHORT).show();
+//                        Intent in = new Intent(My_event_profile.this,my_event_list.class);
+//                        startActivity(in);
+//
+//                    }
+//                });
+//            }
+//        });
+
+
+
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference("Events").child(eid).removeValue(new DatabaseReference.CompletionListener() {
-                    @Override
-                    public void onComplete(@Nullable @org.jetbrains.annotations.Nullable DatabaseError error, @NonNull @NotNull DatabaseReference ref) {
-                        Toasty.success(My_event_profile.this, "deleted succesfully", Toast.LENGTH_SHORT).show();
-                        Intent in = new Intent(My_event_profile.this,my_event_list.class);
-                        startActivity(in);
+            public void onClick(View view) {
+                AlertDialog.Builder builder=new AlertDialog.Builder(img.getContext());
+                builder.setTitle("Delete Panel");
+                builder.setMessage("Delete...?");
 
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        FirebaseDatabase.getInstance().getReference("Events").child(eid).removeValue(new DatabaseReference.CompletionListener() {
+                            @Override
+                            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                Toast.makeText(My_event_profile.this, "deleted succesfully", Toast.LENGTH_SHORT).show();
+                                Intent in = new Intent(My_event_profile.this, my_event_list.class);
+                                startActivity(in);
+                            }
+                        });
                     }
                 });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+                builder.show();
             }
         });
+
     }
 }

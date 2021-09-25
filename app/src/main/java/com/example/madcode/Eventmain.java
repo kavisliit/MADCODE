@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class  Eventmain extends nav_activity{
 
 
-    //ViewFlipper flipper1;
+
     FloatingActionButton fbtn;
     RecyclerView rec;
     DatabaseReference database;
@@ -46,12 +46,7 @@ public class  Eventmain extends nav_activity{
         cl.addView(v,0);
 
 
-//        flipper1 = findViewById(R.id.view_flipper1);
-//        int images[] = {R.drawable.event_main,R.drawable.event_main2,R.drawable.event_main3};
-//
-//        for(int image:images){
-//            flipperimages(image);
-//        }
+
 
 
         setOnClickListner();
@@ -64,6 +59,7 @@ public class  Eventmain extends nav_activity{
         adapter = new Event_adapter(this,list,listner);
         rec.setAdapter(adapter);
 
+        //method for get data from DB
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
@@ -113,16 +109,6 @@ public class  Eventmain extends nav_activity{
     }
 
 
-//    public void flipperimages(int image){
-//        ImageView iw = new ImageView(this);
-//        iw.setBackgroundResource(image);
-//
-//        flipper1.addView(iw);
-//        flipper1.setFlipInterval(4000);
-//        flipper1.setAutoStart(true);
-//
-//        flipper1.setInAnimation(this, android.R.anim.slide_in_left);
-//        flipper1.setOutAnimation(this, android.R.anim.slide_out_right);
-//    }
+
 }
 
