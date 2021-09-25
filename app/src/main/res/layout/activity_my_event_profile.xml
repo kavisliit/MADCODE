@@ -6,15 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".Events.My_event_profile">
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/my_event_selected_pic"
-        android:layout_width="198dp"
-        android:layout_height="158dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="384dp"
+        android:layout_height="197dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="centerCrop"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
@@ -80,8 +80,8 @@
 
     <TextView
         android:id="@+id/my_event_venue"
-        android:layout_width="158dp"
-        android:layout_height="33dp"
+        android:layout_width="198dp"
+        android:layout_height="38dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/roboto_medium"
         android:text="TextView"
@@ -104,10 +104,10 @@
         android:id="@+id/my_event_edit_btn"
         android:layout_width="50dp"
         android:layout_height="51dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="76dp"
-        app:layout_constraintStart_toEndOf="@+id/my_event_selected_pic"
+        android:layout_marginStart="312dp"
+        android:layout_marginLeft="312dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_edit_24" />
 
@@ -120,7 +120,7 @@
         app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="@+id/my_event_edit_btn"
         app:layout_constraintTop_toBottomOf="@+id/my_event_edit_btn"
-        app:srcCompat="@drawable/ic_baseline_delete_24" />
+        app:srcCompat="@drawable/ic_baseline_delete_24d" />
 
     <TextView
         android:id="@+id/textView13"
@@ -130,6 +130,7 @@
         android:layout_marginLeft="56dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/evenT_view_name"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -142,6 +143,7 @@
         android:layout_marginTop="36dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/max_mem_ev"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView19"
@@ -154,6 +156,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/cur_user"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView18"
@@ -166,6 +169,7 @@
         android:layout_marginTop="28dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/type_ev"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView20"
@@ -178,6 +182,7 @@
         android:layout_marginTop="32dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/venue_ev"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView21"
@@ -190,6 +195,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/Time_ev"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView22"
@@ -202,6 +208,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/ev_date"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView13"

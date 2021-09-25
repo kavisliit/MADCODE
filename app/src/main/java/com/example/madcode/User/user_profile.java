@@ -77,7 +77,7 @@ public class user_profile extends AppCompatActivity {
                      pass = userprofile.password;
                      em = userprofile.email;
                     uri = userprofile.uri;
-                    greet.setText("WELCOME "+uname);
+                    greet.setText(uname);
                     name.setText(uname);
                     email.setText(em);
 
