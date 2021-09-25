@@ -11,7 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MADCODE">
-
+        <activity
+            android:name=".Sharebook.Sharebook_updatepage"
+            android:exported="true" />
+        <activity
+            android:name=".Sharebook.Sharebook_viewpage"
+            android:exported="true" />
         <activity android:name=".Events.My_event_edit" />
         <activity android:name=".Events.My_event_profile" />
         <activity android:name=".Events.my_event_list" />
@@ -23,7 +28,6 @@
         <activity android:name=".User.user_registration" />
         <activity android:name=".nav_activity" />
         <activity android:name=".Events.event_profile" />
-
         <activity
             android:name=".Article.ArticleMainPageCustomer"
             android:exported="true" />
@@ -36,11 +40,7 @@
         <activity
             android:name=".Article.MyArticleCreate"
             android:exported="true" />
-
         <activity android:name=".Eventmain" />
-        <activity
-            android:name=".Sudewa"
-            android:exported="true" />
         <activity
             android:name=".Events.Add_Event"
             android:exported="true" />
@@ -48,7 +48,10 @@
             android:name=".kaveenkg"
             android:exported="true" />
         <activity
-            android:name=".sharebook"
+            android:name=".Sharebook.sharebook"
+            android:exported="true" />
+        <activity
+            android:name=".Sharebook.share_menu"
             android:exported="true" />
         <activity
             android:name=".Article.My_Article"
@@ -60,9 +63,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".Article.ArticleViewPage" />
-
 
         <meta-data
             android:name="preloaded_fonts"
