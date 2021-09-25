@@ -56,37 +56,52 @@
         android:id="@+id/textView6"
         android:layout_width="79dp"
         android:layout_height="31dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/cr_by"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/evenet_pic" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/creat_by"
         android:layout_width="113dp"
         android:layout_height="36dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
         android:fontFamily="@font/roboto_medium"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/circularImageView"
+        android:layout_width="114dp"
+
+        android:layout_height="111dp"
+        android:layout_marginTop="116dp"
+        app:civ_border_color="#3f51b5"
+        app:civ_border_width="4dp"
+        app:civ_shadow="true"
+        app:civ_shadow_color="#3f51b5"
+        app:civ_shadow_radius="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/creat_by"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/evenet_pic" />
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:srcCompat="@drawable/ic_launcher_background"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/evenet_pic"
-        android:layout_width="391dp"
-        android:layout_height="153dp"
-        android:scaleType="centerCrop"
+        android:id="@+id/imageView3"
+        android:layout_width="194dp"
+        android:layout_height="132dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_lock_open_24" />
@@ -95,14 +110,11 @@
         android:id="@+id/textView7"
         android:layout_width="103dp"
         android:layout_height="33dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="88dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/ev_name"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/join_btn_ev" />
+        app:layout_constraintTop_toBottomOf="@+id/circularImageView" />
 
     <TextView
         android:id="@+id/textView8"
@@ -111,20 +123,8 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/max_memb"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView28"
-        android:layout_width="128dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/ev_cur_meme"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView9"
@@ -133,7 +133,6 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/Time"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -144,7 +143,6 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/Date"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -155,7 +153,6 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/ev_type"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -166,7 +163,6 @@
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
         android:fontFamily="@font/roboto_medium"
-        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/textView7" />
@@ -177,23 +173,9 @@
         android:layout_height="37dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/roboto_medium"
-        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/info4"
         app:layout_constraintTop_toBottomOf="@+id/info4" />
-
-    <TextView
-        android:id="@+id/info6"
-        android:layout_width="171dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/roboto_medium"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/info5"
-        app:layout_constraintTop_toBottomOf="@+id/info5" />
 
     <TextView
         android:id="@+id/info4"
@@ -201,7 +183,6 @@
         android:layout_height="37dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_medium"
-        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/info3"
         app:layout_constraintTop_toBottomOf="@+id/info3" />
@@ -212,7 +193,6 @@
         android:layout_height="37dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/roboto_medium"
-        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/info2"
         app:layout_constraintTop_toBottomOf="@+id/info2" />
@@ -223,7 +203,6 @@
         android:layout_height="37dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_medium"
-        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/info1"
         app:layout_constraintTop_toBottomOf="@+id/info1" />
@@ -232,12 +211,10 @@
         android:id="@+id/join_btn_ev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:text="@string/join_btn_event"
         app:backgroundTint="@color/main_color"
-        app:layout_constraintStart_toEndOf="@+id/creat_by"
-        app:layout_constraintTop_toTopOf="@+id/creat_by" />
+        app:layout_constraintEnd_toEndOf="@+id/creat_by"
+        app:layout_constraintTop_toBottomOf="@+id/circularImageView" />
 
     <ImageView
         android:id="@+id/members_btn_event"
@@ -245,10 +222,10 @@
         android:layout_height="55dp"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_supervised_user_circle_24" />
+        app:srcCompat="@drawable/ic_baseline_double_arrow_24" />
 
     <TextView
         android:id="@+id/textView17"
@@ -258,49 +235,5 @@
         android:textColor="@color/main_color"
         app:layout_constraintBottom_toTopOf="@+id/members_btn_event"
         app:layout_constraintEnd_toEndOf="@+id/members_btn_event" />
-
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="67dp"
-        android:layout_height="18dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/event_com"
-        android:textColor="@color/main_color"
-        app:layout_constraintBottom_toTopOf="@+id/event_profile_comment_btn"
-        app:layout_constraintStart_toStartOf="@+id/event_profile_comment_btn" />
-
-    <View
-        android:id="@+id/divider9"
-        android:layout_width="391dp"
-        android:layout_height="1dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/join_btn_ev" />
-
-    <ImageView
-        android:id="@+id/event_profile_comment_btn"
-        android:layout_width="61dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_message_24" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/creator_dp"
-        android:layout_width="44dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/divider9"
-        app:layout_constraintEnd_toStartOf="@+id/creat_by"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/evenet_pic"
-        app:srcCompat="@drawable/edit_user" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

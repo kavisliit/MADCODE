@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.madcode.Article.Model.ArticleModel;
 import com.example.madcode.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +23,7 @@ import java.util.ArrayList;
 public class My_Article extends AppCompatActivity {
 
     //variables
-
+    //FloatingActionButton fbtn;
     RecyclerView rec;
     DatabaseReference database;
     Article_adapter adapter;
@@ -33,9 +31,6 @@ public class My_Article extends AppCompatActivity {
     ArrayList<String> getArticleId = new ArrayList<>();
     String ArticleId;
     private Article_adapter.RecyclerViewClickListner listner;
-
-    FirebaseUser fireUser;
-    String CurrentUserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,12 +47,10 @@ public class My_Article extends AppCompatActivity {
         database = FirebaseDatabase.getInstance().getReference("ArticleModel");
         rec.setHasFixedSize(true);
         rec.setLayoutManager(new LinearLayoutManager(this));
-
+        //fbtn = findViewById(R.id.fadd);
         list = new ArrayList<>();
         adapter = new Article_adapter(this,list,listner);
         rec.setAdapter(adapter);
-        //current uid
-        CurrentUserId= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         database.addValueEventListener(new ValueEventListener() {
             @Override
@@ -65,11 +58,8 @@ public class My_Article extends AppCompatActivity {
                 for(DataSnapshot dn : snapshot.getChildren()){
                     ArticleId = dn.getKey();
                     ArticleModel ev = dn.getValue(ArticleModel.class);
-                    if(ev.getCurrentUserId().equals(CurrentUserId)){
-                        list.add(ev);
-                        getArticleId.add(ArticleId);
-                    }
-
+                    list.add(ev);
+                    getArticleId.add(ArticleId);
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -104,6 +94,9 @@ public class My_Article extends AppCompatActivity {
 
     }
 
+   /* public void process(View view){
+        startActivity(new Intent(getApplicationContext(), Add_Event.class));
+    }*/
 
    public void MyArticleToMyCreate(View view){
        Intent intent = new Intent(this,MyArticleCreate.class);
