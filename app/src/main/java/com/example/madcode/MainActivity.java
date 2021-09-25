@@ -32,5 +32,9 @@ public class MainActivity extends nav_activity {
         Intent intent = new Intent(this, user_profile.class);
         startActivity(intent);
     }
+    public void MainToRequestBook(View view){
+        Intent intent = new Intent(this, RequestBook.class);
+        startActivity(intent);
+    }
 
 }
