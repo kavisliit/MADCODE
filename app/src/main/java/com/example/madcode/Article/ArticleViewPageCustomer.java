@@ -13,9 +13,6 @@ import com.example.madcode.R;
 
 public class ArticleViewPageCustomer extends AppCompatActivity {
 
-
-
-
     //ImageButton btnBack;
     String AID ;
     String name = "not set";
@@ -30,80 +27,14 @@ public class ArticleViewPageCustomer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_view_page_customer);
 
-        //btnBack = (ImageButton) findViewById(R.id.btnBack);
-
-
         TextView Head_line = findViewById(R.id.nametext1);
         TextView Small_description = findViewById(R.id.nametext2);
         TextView Sub_topic = findViewById(R.id.nametext3);
         TextView Description = findViewById(R.id.nametext4);
         ImageView propic = findViewById(R.id.image2);
 
-//        //pass the value to edit page
-//        btnEdit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(ArticleViewPage.this,Article_update_page.class);
-//
-//                intent.putExtra("AID",AID);
-//                //pass the data to view page (display)
-//                intent.putExtra("Head_line",name);
-//                intent.putExtra("Small_description",name2);
-//                intent.putExtra("Sub_topic",name3);
-//                intent.putExtra("Description",name4);
-//                intent.putExtra("propic",name5);
-//
-//                startActivity(intent);
-//            }
-//        });
 
-        //Delete button
-//        btnDelete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FirebaseDatabase.getInstance().getReference("ArticleModel").child(AID).removeValue(new DatabaseReference.CompletionListener() {
-//                    @Override
-//                    public void onComplete(@Nullable @org.jetbrains.annotations.Nullable DatabaseError error, @NonNull @NotNull DatabaseReference ref) {
-//                        Toast.makeText(ArticleViewPage.this, "deleted succesfully", Toast.LENGTH_SHORT).show();
-//                        Intent in = new Intent(ArticleViewPage.this,My_Article.class);
-//                        startActivity(in);
-//                    }
-//                });
-//            }
-//        });
-
-//        btnDelete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                AlertDialog.Builder builder=new AlertDialog.Builder(propic.getContext());
-//                builder.setTitle("Delete Panel");
-//                builder.setMessage("Delete...?");
-//
-//                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        FirebaseDatabase.getInstance().getReference("ArticleModel").child(AID).removeValue(new DatabaseReference.CompletionListener() {
-//                            @Override
-//                            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-//                                Toast.makeText(ArticleViewPage.this, "deleted succesfully", Toast.LENGTH_SHORT).show();
-//                                Intent in = new Intent(ArticleViewPage.this,My_Article.class);
-//                                startActivity(in);
-//                            }
-//                        });
-//                    }
-//                });
-//                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                    }
-//                });
-//                builder.show();
-//            }
-//        });
-
-
-
-//display data view page
+        //display data view page
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             AID = extras.getString("AID");
