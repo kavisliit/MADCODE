@@ -67,9 +67,6 @@
             android:name=".Events.Add_Event"
             android:exported="true" />
         <activity
-            android:name=".kaveenkg"
-            android:exported="true" />
-        <activity
             android:name=".sharebook"
             android:exported="true" />
         <activity
