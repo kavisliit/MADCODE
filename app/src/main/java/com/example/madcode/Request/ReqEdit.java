@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
+import es.dmoral.toasty.Toasty;
+
 public class ReqEdit extends AppCompatActivity {
 
 
@@ -27,7 +30,7 @@ public class ReqEdit extends AppCompatActivity {
     Button submit;
 
     ImageButton buttonEdit,buttonDelete;
-    String AID ;
+    String RID ;
     String txt = "not set";
     String txt1 = "not set";
     String txt2 = "not set";
@@ -51,7 +54,7 @@ public class ReqEdit extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            AID = extras.getString("AID");
+            RID = extras.getString("RID");
             txt = extras.getString("book_name");
             txt1 = extras.getString("book_authur");
             txt2 = extras.getString("book_publisher");
@@ -78,6 +81,32 @@ public class ReqEdit extends AppCompatActivity {
                 txt3  = book_description.getText().toString();
                 txt4  = ReqUrl.getText().toString();
 
+                if(TextUtils.isEmpty(book_name.getText().toString()))
+                {
+                    Toasty.success(getApplicationContext(), "Book Name Required!", Toast.LENGTH_SHORT, true).show();
+                    return;
+                }
+                if(TextUtils.isEmpty(book_authur.getText().toString()))
+                {
+                    Toasty.success(getApplicationContext(), "Book Authur Required!", Toast.LENGTH_SHORT, true).show();
+                    return;
+                }
+                if(TextUtils.isEmpty(book_publisher.getText().toString()))
+                {
+                    Toasty.success(getApplicationContext(), "Book Publisher Required!", Toast.LENGTH_SHORT, true).show();
+                    return;
+                }
+                if(TextUtils.isEmpty(book_description.getText().toString()))
+                {
+                    Toasty.success(getApplicationContext(), "Book Description Required!", Toast.LENGTH_SHORT, true).show();
+                    return;
+                }
+                if(TextUtils.isEmpty(ReqUrl.getText().toString()))
+                {
+                    Toasty.success(getApplicationContext(), "Image Url Required!", Toast.LENGTH_SHORT, true).show();
+                    return;
+                }
+
                 Map<String,Object> map = new HashMap<>();
                 map.put("book_name",txt);
                 map.put("book_authur",txt1);
@@ -86,7 +115,7 @@ public class ReqEdit extends AppCompatActivity {
                 map.put("ReqUrl",txt4);
 
 
-                db = FirebaseDatabase.getInstance().getReference("reqmodal").child(AID)
+                db = FirebaseDatabase.getInstance().getReference("reqmodal").child(RID)
                         .updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
