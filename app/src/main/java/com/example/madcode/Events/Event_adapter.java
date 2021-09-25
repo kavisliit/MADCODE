@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,8 +17,6 @@ import com.example.madcode.R;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class Event_adapter extends RecyclerView.Adapter<Event_adapter.MyViewHolder>{
@@ -59,8 +58,7 @@ public class Event_adapter extends RecyclerView.Adapter<Event_adapter.MyViewHold
     public static class MyViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
 
         TextView name,venue,Date,Time,max;
-
-        CircleImageView iv;
+        ImageView iv;
 
         public MyViewHolder(@NonNull @org.jetbrains.annotations.NotNull View itemView) {
             super(itemView);

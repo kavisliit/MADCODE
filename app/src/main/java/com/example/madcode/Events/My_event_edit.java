@@ -89,64 +89,55 @@ public class My_event_edit extends AppCompatActivity {
         savebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name = tname.getText().toString();
-                date = tdate.getText().toString();
-                time = ttime.getText().toString();
-                venue = tvenue.getText().toString();
-                type = ttype.getText().toString();
-                mem = tmem.getText().toString();
+                name  = tname.getText().toString();
+                date  = tdate.getText().toString();
+                time  = ttime.getText().toString();
+                venue  = tvenue.getText().toString();
+                type  = ttype.getText().toString();
+                mem  = tmem.getText().toString();
                 uri = turi.getText().toString();
 
-                if (TextUtils.isEmpty(name)) {
+                if(TextUtils.isEmpty(name)){
                     Toasty.error(My_event_edit.this, "Name is required", Toast.LENGTH_SHORT, true).show();
-
+                    
                     return;
                 }
-                if (TextUtils.isEmpty(time)) {
+                if(TextUtils.isEmpty(time)){
                     Toasty.error(My_event_edit.this, "Time is Required.", Toast.LENGTH_SHORT, true).show();
                     return;
                 }
-                if (TextUtils.isEmpty(venue)) {
+                if(TextUtils.isEmpty(venue)){
                     Toasty.error(My_event_edit.this, "Venue is Required.", Toast.LENGTH_SHORT, true).show();
                     return;
                 }
-                if (TextUtils.isEmpty(type)) {
+                if(TextUtils.isEmpty(type)){
                     Toasty.error(My_event_edit.this, "Type is required.", Toast.LENGTH_SHORT, true).show();
                     return;
                 }
-                if (TextUtils.isEmpty(mem)) {
-                    Toasty.error(My_event_edit.this, "Type is required.", Toast.LENGTH_SHORT, true).show();
-                    return;
-                }
-                if (TextUtils.isEmpty(uri)) {
-                    Toasty.error(My_event_edit.this, "Type is required.", Toast.LENGTH_SHORT, true).show();
-                    return;
-                }
-                if (TextUtils.isEmpty(date)) {
+                if(TextUtils.isEmpty(date)){
                     Toasty.error(My_event_edit.this, "Date is required.", Toast.LENGTH_SHORT, true).show();
                     return;
-                } else {
-                    Map<String, Object> map = new HashMap<>();
-                    map.put("name", name);
-                    map.put("type", type);
-                    map.put("date", date);
-                    map.put("time", time);
-                    map.put("venue", venue);
-                    map.put("max", mem);
-                    map.put("uri", uri);
-                    map.put("cid", cid);
-                    db = FirebaseDatabase.getInstance().getReference("Events").child(eid)
-                            .updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    Toasty.success(My_event_edit.this, "success", Toast.LENGTH_SHORT).show();
-                                    Intent in = new Intent(My_event_edit.this, my_event_list.class);
-                                    startActivity(in);
-
-                                }
-                            });
-
                 }
+                Map<String,Object> map = new HashMap<>();
+                map.put("name",name);
+                map.put("type",type);
+                map.put("date",date);
+                map.put("time",time);
+                map.put("venue",venue);
+                map.put("max",mem);
+                map.put("uri",uri);
+                map.put("cid",cid);
+                db = FirebaseDatabase.getInstance().getReference("Events").child(eid)
+                        .updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toasty.success(My_event_edit.this, "success", Toast.LENGTH_SHORT).show();
+                                Intent in = new Intent(My_event_edit.this,my_event_list.class);
+                                startActivity(in);
+
+                            }
+                        });
+
             }
         });
 

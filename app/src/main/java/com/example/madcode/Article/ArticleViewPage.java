@@ -20,8 +20,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import es.dmoral.toasty.Toasty;
-
 
 public class ArticleViewPage extends AppCompatActivity {
 
@@ -66,15 +64,27 @@ public class ArticleViewPage extends AppCompatActivity {
             }
         });
 
+        //Delete button
+//        btnDelete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                FirebaseDatabase.getInstance().getReference("ArticleModel").child(AID).removeValue(new DatabaseReference.CompletionListener() {
+//                    @Override
+//                    public void onComplete(@Nullable @org.jetbrains.annotations.Nullable DatabaseError error, @NonNull @NotNull DatabaseReference ref) {
+//                        Toast.makeText(ArticleViewPage.this, "deleted succesfully", Toast.LENGTH_SHORT).show();
+//                        Intent in = new Intent(ArticleViewPage.this,My_Article.class);
+//                        startActivity(in);
+//                    }
+//                });
+//            }
+//        });
 
-        //delete button
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(propic.getContext());
-                builder.setTitle("Are You Sure You Want to ❌");
-                builder.setMessage("Delete Article ...?🚮");
-
+                builder.setTitle("Delete Panel");
+                builder.setMessage("Delete...?");
 
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
@@ -82,7 +92,7 @@ public class ArticleViewPage extends AppCompatActivity {
                         FirebaseDatabase.getInstance().getReference("ArticleModel").child(AID).removeValue(new DatabaseReference.CompletionListener() {
                             @Override
                             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                                Toasty.info(getApplicationContext(), "Delete Successfully 🚮", Toast.LENGTH_SHORT, true).show();
+                                Toast.makeText(ArticleViewPage.this, "deleted succesfully", Toast.LENGTH_SHORT).show();
                                 Intent in = new Intent(ArticleViewPage.this,My_Article.class);
                                 startActivity(in);
                             }
@@ -99,7 +109,8 @@ public class ArticleViewPage extends AppCompatActivity {
         });
 
 
-        //display data view page
+
+//display data view page
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             AID = extras.getString("AID");

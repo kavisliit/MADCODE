@@ -1,23 +1,14 @@
 package com.example.madcode.Events.Models;
 
 public class Event_group {
-    public String gkey,member,eid,cid;
+    public String gkey,member,eid;
 
     Event_group(){}
 
-    public Event_group(String gkey, String member, String eid,String cid) {
+    public Event_group(String gkey, String member, String eid) {
         this.gkey = gkey;
         this.member = member;
         this.eid = eid;
-        this.cid = cid;
-    }
-
-    public String getCid() {
-        return cid;
-    }
-
-    public void setCid(String cid) {
-        this.cid = cid;
     }
 
     public String getGkey() {

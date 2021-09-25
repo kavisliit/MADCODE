@@ -38,12 +38,12 @@ public class Article_adapter_customer extends RecyclerView.Adapter<Article_adapt
     @Override
     public void onBindViewHolder(@NonNull @NotNull Article_adapter_customer.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-        //call the article model
         ArticleModel ob = list.get(position);
         holder.Head_line.setText(ob.getHead_line());
         holder.Small_description.setText(ob.getSmall_description());
         holder.Sub_topic.setText(ob.getSub_topic());
         holder.Description.setText(ob.getDescription());
+        //holder.purl.setText(ob.getPurl());
         Glide.with(holder.propic.getContext()).load(ob.getPurl()).into(holder.propic);
 
 
@@ -54,18 +54,17 @@ public class Article_adapter_customer extends RecyclerView.Adapter<Article_adapt
         return list.size();
     }
     public static class MyViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
-
         TextView Head_line,Small_description,Sub_topic,Description;
         ImageView propic;
 
 
         public MyViewHolder(@NonNull @org.jetbrains.annotations.NotNull View itemView) {
             super(itemView);
-
             Head_line = itemView.findViewById(R.id.article_txt1);
             Small_description = itemView.findViewById(R.id.article_txt2);
             Sub_topic = itemView.findViewById(R.id.article_txt3);
             Description= itemView.findViewById(R.id.article_txt4);
+            //purl = itemView.findViewById(R.id.article_txt);
             propic = itemView.findViewById(R.id.image);
             itemView.setOnClickListener(this);
 

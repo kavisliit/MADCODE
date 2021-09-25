@@ -3,44 +3,36 @@
     <group
         android:checkableBehavior="single">
         <item
-            android:id="@+id/home"
-            android:icon="@drawable/ic_baseline_home_24"
-            android:title="Home" />
+            android:title="Home"
+            android:id="@+id/home"/>
 
         <item
-            android:id="@+id/ig"
-            android:icon="@drawable/ic_baseline_supervised_user_circle_24"
-            android:title="Profile" />
+            android:title="instragram"
+            android:id="@+id/ig"/>
 
         <item
-            android:id="@+id/yt"
-            android:icon="@drawable/ic_baseline_book_24"
-            android:title="My Books" />
-
-
-        <item
-            android:icon="@drawable/ic_baseline_arrow_downward_24"
-            android:title="My Requests" />
-
-
-        <item
-            android:id="@+id/msg"
-            android:icon="@drawable/ic_baseline_article_24"
-            android:title="My Articles" />
-
-        <item
-            android:id="@+id/em"
-            android:icon="@drawable/ic_baseline_event_24"
-            android:title="My Events" />
-
-        <item
-            android:id="@+id/call"
-            android:icon="@drawable/ic_baseline_lock_open_24"
-            android:title="Logout" />
-
-
-
-
+            android:title="youtube"
+            android:id="@+id/yt"/>
 
     </group>
+    <item
+        android:title="contact us">
+    <menu>
+
+        <item
+            android:title="message"
+            android:id="@+id/msg"/>
+
+        <item
+            android:title="email"
+            android:id="@+id/em"/>
+
+        <item
+            android:title="call"
+            android:id="@+id/call"/>
+
+
+    </menu>
+
+    </item>
 </menu>

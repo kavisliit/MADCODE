@@ -1,11 +1,11 @@
 package com.example.madcode.Events;
+
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +14,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+
 import com.example.madcode.Eventmain;
 import com.example.madcode.R;
 import com.example.madcode.nav_activity;
@@ -24,11 +26,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+
 import es.dmoral.toasty.Toasty;
 
 public class Add_Event extends nav_activity {
@@ -54,6 +59,36 @@ public class Add_Event extends nav_activity {
         cl.addView(my,0);
 
 
+        storageReference = FirebaseStorage.getInstance().getReference("Images");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Images");
+      //  browse = (Button)findViewById(R.id.btnbrowse);
+      //  upload = (Button)findViewById(R.id.upload_btn);
+       // imgview = (ImageView)findViewById(R.id.image_view);
+     //   progressDialog = new ProgressDialog(Add_Event.this);// context name as per your project name
+
+
+//        browse.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent();
+//                intent.setType("image/*");
+//                intent.setAction(Intent.ACTION_GET_CONTENT);
+//                startActivityForResult(Intent.createChooser(intent, "Select Image"), Image_Request_Code);
+//
+//            }
+//        });
+//
+//        upload.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//
+//                //UploadImage();
+//
+//            }
+//        });
+
+
 
 
 
@@ -70,8 +105,8 @@ public class Add_Event extends nav_activity {
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
+//
 
-        //method for datepicker dialog
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +122,6 @@ public class Add_Event extends nav_activity {
             }
         });
 
-        //method for back button
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +130,6 @@ public class Add_Event extends nav_activity {
             }
         });
 
-        //method for event creation
         create = findViewById(R.id.create_btn);
         create.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +141,6 @@ public class Add_Event extends nav_activity {
             }
         });
 
-        //method for timepickerdialog
         time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,82 +150,103 @@ public class Add_Event extends nav_activity {
 
     }
 
-    //method and validations
     private void eventcreate() {
-
-        if(TextUtils.isEmpty(name.getText().toString())){
-            Toasty.error(Add_Event.this, "Event name required", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(type.getText().toString())){
-            Toasty.error(Add_Event.this, "Event type Required", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(date.getText().toString())){
-            Toasty.error(Add_Event.this, "Date  Required", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(time.getText().toString())){
-            Toasty.error(Add_Event.this, "Time Required", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(venue.getText().toString())){
-            Toasty.error(Add_Event.this, "Event Venue Required", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(max_mem.getText().toString())){
-            Toasty.error(Add_Event.this, "No of Members Required", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(uri.getText().toString())){
-            Toasty.error(Add_Event.this, "URL Required", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        else {
-            //enter the data info firebase db
-            us = FirebaseAuth.getInstance().getCurrentUser();
-            String uid = us.getUid();
-            Map<String, Object> map = new HashMap<>();
-            map.put("name", name.getText().toString());
-            map.put("type", type.getText().toString());
-            map.put("date", date.getText().toString());
-            map.put("time", time.getText().toString());
-            map.put("venue", venue.getText().toString());
-            map.put("max", max_mem.getText().toString());
-            map.put("uri", uri.getText().toString());
-            map.put("cid", uid);
-            db = FirebaseDatabase.getInstance().getReference("Events");
-            db.push().setValue(map)
+        us = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = us.getUid();
+        Map<String,Object> map = new HashMap<>();
+        map.put("name",name.getText().toString());
+        map.put("type",type.getText().toString());
+        map.put("date",date.getText().toString());
+        map.put("time",time.getText().toString());
+        map.put("venue",venue.getText().toString());
+        map.put("max",max_mem.getText().toString());
+        map.put("uri",uri.getText().toString());
+        map.put("cid",uid);
+        db = FirebaseDatabase.getInstance().getReference("Events");
+        db.push().setValue(map)
 
 
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        //clear the text filelds
-                        @Override
-                        public void onSuccess(Void unused) {
-                            name.setText("");
-                            time.setText("");
-                            type.setText("");
-                            venue.setText("");
-                            date.setText("");
-                            max_mem.setText("");
-                            uri.setText("");
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        name.setText("");
+                        time.setText("");
+                        type.setText("");
+                        venue.setText("");
+                        date.setText("");
+                        max_mem.setText("");
+                        uri.setText("");
 
 
-                            Toasty.success(Add_Event.this, "Inserted successfully", Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
+                       Toasty.success(Add_Event.this, "Inserted successfully", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
 
-                            Toasty.error(Add_Event.this, "Could not Insert", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        }
+                        Toasty.error(Add_Event.this, "Could not Insert", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
     }
 
 
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (requestCode == Image_Request_Code && resultCode == RESULT_OK && data != null && data.getData() != null) {
+//
+//            FilePathUri = data.getData();
+//
+//            try {
+//                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), FilePathUri);
+//                imgview.setImageBitmap(bitmap);
+//            }
+//            catch (IOException e) {
+//
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+
+
+//    public String GetFileExtension(Uri uri) {
+//
+//        ContentResolver contentResolver = getContentResolver();
+//        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+//        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri)) ;
+//
+//    }
+
+
+//    public void UploadImage() {
+//
+//        if (FilePathUri != null) {
+//
+//            progressDialog.setTitle("Image is Uploading...");
+//            progressDialog.show();
+//            StorageReference storageReference2 = storageReference.child(System.currentTimeMillis() + "." + GetFileExtension(FilePathUri));
+//            storageReference2.putFile(FilePathUri)
+//                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                        @Override
+//                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//
+//
+//                            progressDialog.dismiss();
+//                            Toast.makeText(getApplicationContext(), "Image Uploaded Successfully ", Toast.LENGTH_LONG).show();
+//                            imguri = taskSnapshot.getUploadSessionUri().toString();
+//                        }
+//                    });
+//        }
+//        else {
+//
+//            Toast.makeText(Add_Event.this, "Please Select Image or Add Image Name", Toast.LENGTH_LONG).show();
+//
+//        }
+//    }
 
 
     public void Poptimepicker(View view){

@@ -28,7 +28,6 @@ public class my_event_list extends AppCompatActivity {
     RecyclerView rec;
     my_event_adapter adapter;
     ArrayList<Event> list;
-    ArrayList<String> eidlist = new ArrayList<>();
     String eventid;
     String id,curuser;
    private my_event_adapter.RecyclerViewClickListner listner;
@@ -75,7 +74,6 @@ public class my_event_list extends AppCompatActivity {
                         Event ev = dn.getValue(Event.class);
                         if (ev.getCid().equals(curuser)) {
                             eventid = id;
-                            eidlist.add(eventid);
                             list.add(ev);
                         }
 
@@ -97,7 +95,7 @@ public class my_event_list extends AppCompatActivity {
             public void onClick(View v, int position) {
 
                 Intent in = new Intent(getApplicationContext(), My_event_profile.class);
-                in.putExtra("eid",eidlist.get(position));
+                in.putExtra("eid",eventid);
                 in.putExtra("name",list.get(position).getName());
                 in.putExtra("date",list.get(position).getDate());
                 in.putExtra("venue",list.get(position).getVenue());
