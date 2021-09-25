@@ -23,7 +23,7 @@
             android:text="@string/txt_update_head"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView16"
+            app:layout_constraintStart_toEndOf="@+id/Backbtn"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -38,7 +38,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/update_purl" />
 
-        <ImageView
+        <pl.droidsonroids.gif.GifImageView
             android:id="@+id/inputimage"
             android:layout_width="114dp"
             android:layout_height="100dp"
@@ -47,7 +47,7 @@
             app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_head_edit"
-            app:srcCompat="@drawable/urlicon" />
+            android:src="@drawable/preloader" />
 
 
         <EditText
@@ -68,13 +68,16 @@
             app:layout_constraintTop_toBottomOf="@+id/update_Head_line"
             tools:ignore="TouchTargetSizeCheck" />
 
-        <ImageView
-            android:id="@+id/imageView16"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+        <ImageButton
+            android:id="@+id/Backbtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="16dp"
+            android:backgroundTintMode="screen"
+            android:contentDescription="TODO"
+            android:onClick="EditToMyArticlePage"
+            android:scaleType="centerCrop"
             android:src="@drawable/backbttn"
             app:layout_constraintBottom_toTopOf="@+id/inputimage"
             app:layout_constraintStart_toStartOf="parent"
@@ -103,8 +106,8 @@
 
         <EditText
             android:id="@+id/update_purl"
-            android:layout_width="170dp"
-            android:layout_height="48dp"
+            android:layout_width="274dp"
+            android:layout_height="39dp"
             android:layout_marginTop="2dp"
             android:background="@drawable/forget"
             android:ems="10"
@@ -112,7 +115,7 @@
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputimage"/>
+            app:layout_constraintTop_toBottomOf="@+id/inputimage" />
 
         <EditText
             android:id="@+id/update_Head_line"
