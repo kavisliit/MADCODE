@@ -81,14 +81,13 @@
         app:layout_constraintStart_toStartOf="@+id/my_evet_edit_name"
         app:layout_constraintTop_toBottomOf="@+id/my_evet_edit_name" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/my_evet_edit_img"
-        android:layout_width="195dp"
+        android:scaleType="centerCrop"
+        android:layout_width="385dp"
         android:layout_height="162dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginTop="4dp"
         android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -108,8 +107,8 @@
         android:id="@+id/my_event_edit_btn2"
         android:layout_width="170dp"
         android:layout_height="51dp"
-        android:layout_marginStart="112dp"
-        android:layout_marginLeft="112dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
         android:layout_marginTop="8dp"
         android:text="@string/edit_save_btn_event"
         app:backgroundTint="@color/main_color"
