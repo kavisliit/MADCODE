@@ -25,7 +25,7 @@
         android:background="@drawable/forget"
         android:ems="10"
         android:hint="@string/user_pass"
-        android:inputType="textPersonName"
+        android:inputType="textVisiblePassword"
         android:textColor="@color/black"
         android:textColorHint="@color/margin"
         app:layout_constraintEnd_toEndOf="parent"

@@ -12,17 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADCODE">
         <activity
+
+            android:name=".Events.event_comments"
+            android:exported="true" />
+        <activity
             android:name=".Request.ReqView"
             android:exported="true" />
         <activity
             android:name=".Request.RequestBook"
             android:exported="true" />
+      
         <activity
             android:name=".Request.ReqEdit"
             android:exported="true" />
+      
         <activity
             android:name=".Request.bookreqform"
             android:exported="true" />
+      
         <activity android:name=".Events.My_event_edit" />
         <activity android:name=".Events.My_event_profile" />
         <activity android:name=".Events.my_event_list" />
@@ -54,16 +61,7 @@
             android:exported="true" />
         <activity android:name=".Eventmain" />
         <activity
-            android:name=".Sudewa"
-            android:exported="true" />
-        <activity
             android:name=".Events.Add_Event"
-            android:exported="true" />
-        <activity
-            android:name=".kaveenkg"
-            android:exported="true" />
-        <activity
-            android:name=".sharebook"
             android:exported="true" />
         <activity
             android:name=".Article.My_Article"

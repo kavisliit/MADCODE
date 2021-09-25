@@ -1,11 +1,11 @@
 package com.example.madcode.Events.Models;
 
 public class memberlist_model {
-    String uname,url;
+    String uname,uri;
 
-    public memberlist_model(String uname, String url) {
+    public memberlist_model(String uname, String uri) {
         this.uname = uname;
-        this.url = url;
+        this.uri = uri;
     }
 
     public String getUname() {
@@ -16,11 +16,11 @@ public class memberlist_model {
         this.uname = uname;
     }
 
-    public String getUrl() {
-        return url;
+    public String getUri() {
+        return uri;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setUri(String uri) {
+        this.uri = uri;
     }
 }
