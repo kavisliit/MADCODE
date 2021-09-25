@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,8 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import es.dmoral.toasty.Toasty;
 
 public class bookreqform extends AppCompatActivity {
 
@@ -65,31 +62,6 @@ public class bookreqform extends AppCompatActivity {
 
     private void processinsert()
     {
-        if(TextUtils.isEmpty(book_name.getText().toString()))
-        {
-            Toasty.success(getApplicationContext(), "Book Name Required!", Toast.LENGTH_SHORT, true).show();
-            return;
-        }
-        if(TextUtils.isEmpty(book_authur.getText().toString()))
-        {
-            Toasty.success(getApplicationContext(), "Book Authur Required!", Toast.LENGTH_SHORT, true).show();
-            return;
-        }
-        if(TextUtils.isEmpty(book_publisher.getText().toString()))
-        {
-            Toasty.success(getApplicationContext(), "Book Publisher Required!", Toast.LENGTH_SHORT, true).show();
-            return;
-        }
-        if(TextUtils.isEmpty(book_description.getText().toString()))
-        {
-            Toasty.success(getApplicationContext(), "Book Description Required!", Toast.LENGTH_SHORT, true).show();
-            return;
-        }
-        if(TextUtils.isEmpty(ReqUrl.getText().toString()))
-        {
-            Toasty.success(getApplicationContext(), "Image Url Required!", Toast.LENGTH_SHORT, true).show();
-            return;
-        }
 
 
         Map<String,Object> map=new HashMap<>();
