@@ -9,126 +9,69 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/img_event"
-            android:layout_width="162dp"
-            android:layout_height="110dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="388dp"
+            android:layout_height="135dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/forget"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.428"
-            app:srcCompat="@drawable/ic_launcher_background"
-            tools:ignore="VectorDrawableCompat" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_event"
+            android:layout_width="203dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/forget"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_baseline_add_circle_24"
+            tools:layout_editor_absoluteY="7dp" />
 
         <TextView
             android:id="@+id/e_txt1"
-            android:layout_width="207dp"
-            android:layout_height="33dp"
+            android:layout_width="136dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto_medium"
-            android:gravity="center"
-            android:textColor="@color/main_color"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textView24"
             app:layout_constraintStart_toEndOf="@+id/img_event"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/e_txt3"
-            android:layout_width="106dp"
-            android:layout_height="23dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginBottom="1dp"
+            android:layout_width="142dp"
+            android:layout_height="37dp"
             android:fontFamily="@font/roboto_medium"
-            app:layout_constraintBottom_toTopOf="@+id/e_txt4"
             app:layout_constraintEnd_toEndOf="@+id/e_txt2"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView25"
+            app:layout_constraintStart_toStartOf="@+id/e_txt2"
             app:layout_constraintTop_toBottomOf="@+id/e_txt2" />
 
         <TextView
             android:id="@+id/e_txt4"
-            android:layout_width="62dp"
-            android:layout_height="28dp"
-            android:layout_marginBottom="3dp"
+            android:layout_width="69dp"
+            android:layout_height="36dp"
             android:fontFamily="@font/roboto_medium"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/e_txt3"
             app:layout_constraintTop_toBottomOf="@+id/e_txt3" />
 
         <TextView
             android:id="@+id/e_txt2"
-            android:layout_width="109dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="136dp"
+            android:layout_height="31dp"
             android:fontFamily="@font/roboto_medium"
-            app:layout_constraintStart_toEndOf="@+id/textView24"
+            app:layout_constraintEnd_toEndOf="@+id/e_txt1"
+            app:layout_constraintStart_toStartOf="@+id/e_txt1"
             app:layout_constraintTop_toBottomOf="@+id/e_txt1" />
-
-        <TextView
-            android:id="@+id/textView24"
-            android:layout_width="87dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="3dp"
-            android:fontFamily="@font/roboto_medium"
-            android:gravity="left"
-            android:text="@string/ev_time"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView25"
-            app:layout_constraintEnd_toStartOf="@+id/e_txt2"
-            app:layout_constraintStart_toEndOf="@+id/img_event"
-            app:layout_constraintTop_toBottomOf="@+id/e_txt1" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="87dp"
-            android:layout_height="30dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/roboto_medium"
-            android:gravity="left"
-            android:text="@string/ev_mem"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/e_txt2"
-            app:layout_constraintStart_toEndOf="@+id/img_event"
-            app:layout_constraintTop_toBottomOf="@+id/textView25" />
-
-        <TextView
-            android:id="@+id/textView25"
-            android:layout_width="87dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="3dp"
-            android:fontFamily="@font/roboto_medium"
-            android:gravity="left"
-            android:text="@string/ev_date"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView4"
-            app:layout_constraintEnd_toStartOf="@+id/e_txt2"
-            app:layout_constraintStart_toEndOf="@+id/img_event"
-            app:layout_constraintTop_toBottomOf="@+id/textView24" />
-
-        <View
-            android:id="@+id/divider10"
-            android:layout_width="391dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginLeft="1dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginRight="1dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/e_txt4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

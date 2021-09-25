@@ -36,7 +36,6 @@ public class ArticleMainPageCustomer extends AppCompatActivity {
         setContentView(R.layout.activity_article_main_page_customer);
 
 
-        //article click
         setOnClickListner();
         rec = findViewById(R.id.recyclerView2);
         //get reference form database
@@ -69,14 +68,13 @@ public class ArticleMainPageCustomer extends AppCompatActivity {
     }
 
 
-//when click the article pass the data to article view page
+
     private void setOnClickListner() {
         listner = new Article_adapter_customer.RecyclerViewClickListner() {
             @Override
             public void onClick(View v, int position) {
                 Intent in = new Intent(getApplicationContext(), ArticleViewPageCustomer.class);
 
-                //pass the current page id to display
                 in.putExtra("AID",getArticleId.get(position));
                 //pass the data to view page (display)
                 in.putExtra("Head_line",list.get(position).getHead_line());

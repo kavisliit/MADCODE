@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pick a Book</string>
+    <string name="app_name">MADCODE</string>
 
     <string name="create_event">Create an Event</string>
     <string name="get_name">Enter the Name</string>
@@ -87,19 +87,8 @@
     <string name="update_small_descri_input_txt" />
     <string name="update_pngtxt">Add Image Url</string>
     <string name="todo">TODO</string>
-    <string name="Articles_Head">Articles</string>
-    <string name="event_list">Events</string>
-    <string name="ev_time">Time</string>
-    <string name="ev_date_2">Date</string>
-    <string name="ev_mem">Members</string>
-    <string name="greet_event">WELCOME</string>
-    <string name="pro_title">PICK A BOOK</string>
-    <string name="moto">Request    Get  Share</string>
-    <string name="ev_moto">Request , Get ,Share</string>
-    <string name="ev_cur_meme">Joined Members</string>
-    <string name="my_ev_title">Created Events</string>
-    <string name="event_com">Comments</string>
-    <string name="hint_ev">Comment</string>
+    <string name="Articles_Head">Articles</string>s
+
 
     //kaveenstrings
     <string name="BookReq">ReqBookheading</string>
