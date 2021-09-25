@@ -61,13 +61,7 @@
             android:exported="true" />
         <activity android:name=".Eventmain" />
         <activity
-            android:name=".Sudewa"
-            android:exported="true" />
-        <activity
             android:name=".Events.Add_Event"
-            android:exported="true" />
-        <activity
-            android:name=".sharebook"
             android:exported="true" />
         <activity
             android:name=".Article.My_Article"
