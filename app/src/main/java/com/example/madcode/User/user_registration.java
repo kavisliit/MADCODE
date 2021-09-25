@@ -26,6 +26,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
+import es.dmoral.toasty.Toasty;
+
 public class user_registration extends AppCompatActivity {
 
     TextView name,uri,password,email,phone,dob;
@@ -48,32 +50,32 @@ public class user_registration extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-
+        //method that execute when user click the register button
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try{
                     if(TextUtils.isEmpty(name.getText().toString())){
-                        Toast.makeText(user_registration.this, "Enter Name", Toast.LENGTH_SHORT).show();
+                        Toasty.error(user_registration.this, "Enter Name", Toast.LENGTH_SHORT).show();
                     }
 
                     else if(TextUtils.isEmpty(password.getText().toString())){
-                        Toast.makeText(user_registration.this, "Enter password", Toast.LENGTH_SHORT).show();
+                        Toasty.error(user_registration.this, "Enter password", Toast.LENGTH_SHORT).show();
                     }
                     else if(TextUtils.isEmpty(email.getText().toString())){
-                        Toast.makeText(user_registration.this, "Enter Email", Toast.LENGTH_SHORT).show();
+                        Toasty.error(user_registration.this, "Enter Email", Toast.LENGTH_SHORT).show();
                     }
                     else if(TextUtils.isEmpty(phone.getText().toString())){
-                        Toast.makeText(user_registration.this, "Enter Phone Number", Toast.LENGTH_SHORT).show();
+                        Toasty.error(user_registration.this, "Enter Phone Number", Toast.LENGTH_SHORT).show();
                     }
                     else if(TextUtils.isEmpty(dob.getText().toString())){
-                        Toast.makeText(user_registration.this, "Enter DOB", Toast.LENGTH_SHORT).show();
+                        Toasty.error(user_registration.this, "Enter DOB", Toast.LENGTH_SHORT).show();
                     }
                     else if(!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()){
-                        Toast.makeText(user_registration.this, "Enter valid Email", Toast.LENGTH_SHORT).show();
+                        Toasty.error(user_registration.this, "Enter valid Email", Toast.LENGTH_SHORT).show();
                     }
                     else if(password.getText().toString().length() < 6){
-                        Toast.makeText(user_registration.this, "Min length should be 6 characters", Toast.LENGTH_SHORT).show();
+                        Toasty.error(user_registration.this, "Min length should be 6 characters", Toast.LENGTH_SHORT).show();
                     }
                     else{
                         String email1 = email.getText().toString().trim();
@@ -84,7 +86,7 @@ public class user_registration extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                                         if(task.isSuccessful()){
-
+                                            //insert data into the firebase db
                                             Map<String,Object> map = new HashMap<>();
                                             map.put("uname",name.getText().toString());
                                             map.put("uri",uri.getText().toString());
@@ -97,11 +99,11 @@ public class user_registration extends AppCompatActivity {
                                                         @Override
                                                         public void onComplete(@NonNull @NotNull Task<Void> task) {
                                                             if(task.isSuccessful()) {
-                                                                Toast.makeText(user_registration.this, "Successfully created", Toast.LENGTH_SHORT).show();
+                                                                Toasty.success(user_registration.this, "Successfully created", Toast.LENGTH_SHORT).show();
                                                                 clearcontrols();
                                                             }
                                                             else{
-                                                                Toast.makeText(user_registration.this, "Error", Toast.LENGTH_SHORT).show();
+                                                                Toasty.error(user_registration.this, "Error", Toast.LENGTH_SHORT).show();
                                                             }
                                                         }
                                                     });
@@ -116,13 +118,13 @@ public class user_registration extends AppCompatActivity {
 
                 }
                 catch (NumberFormatException e){
-                    Toast.makeText(user_registration.this, "Invalid Number", Toast.LENGTH_SHORT).show();
+                    Toasty.error(user_registration.this, "Invalid Number", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
     }
-
+    //clear all input fields
     private void clearcontrols(){
         name.setText("");
         uri.setText("");
