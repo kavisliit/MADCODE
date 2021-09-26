@@ -23,8 +23,9 @@ These can be mentioned as examples to the Events,
 User that created the event have all admin privileges to that event and he/she can edit or delete their events.
 Users also can add articles to this application. If users need to share their knowledge with others, they can create an article through this application and other user can view all available articles in the application. Without any payments and limitations users can get good book sharing experience through this application and all the book lovers speeded thought the country  can use this application as a good platform to improve their reading experience
 
-Built With
-This section shows the list of major technologies that we have used to built our project .
+**Built With**
+
+**This section shows the list of major technologies that we have used to build our project.**
 
 - [ ] Language: [Java 8](url)
 ![fgdfgsds](https://user-images.githubusercontent.com/86596641/134816475-983746a8-bb10-484a-b436-560a42955637.png)
