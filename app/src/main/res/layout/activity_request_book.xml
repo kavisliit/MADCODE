@@ -9,8 +9,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewR"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="414dp"
+        android:layout_height="663dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fadd"
@@ -27,5 +32,21 @@
         app:backgroundTint="#00Af5D"
         app:srcCompat="@drawable/add_circle_outline"
         tools:ignore="SpeakableTextPresentCheck,VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="330dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginEnd="177dp"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="My Requested Book"
+        android:textColor="@color/madGreen"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

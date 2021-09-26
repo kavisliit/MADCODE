@@ -104,7 +104,7 @@ public class ReqView extends AppCompatActivity {
 
 
 
-//display data view page
+//display request view page
         Bundle extras = getIntent().getExtras();
         if(extras != null){
 
