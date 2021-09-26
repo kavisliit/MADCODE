@@ -47,7 +47,7 @@ Database: [Firebase](url)
 
 Contributors
 =
-- [ ]  IT20166410 - Ranaweeera K.G 
+- [ ]  IT20166410 - Ranaweera K.G 
 - [ ]  IT20009540 - Senevirathna D.K.C
 - [ ]  IT20168568 - Nadula J.K.D.P
 - [ ]  IT20062774 - Perera B.G.S.J
