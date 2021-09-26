@@ -101,11 +101,7 @@ public class bookreqform extends AppCompatActivity {
         map.put("ReqUrl",ReqUrl.getText().toString());
         map.put("requserid",requserid);
 
-
         FirebaseDatabase.getInstance().getReference().child("reqmodal").push().setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-
-
-
 
             @Override
             public void onSuccess(Void aVoid) {
