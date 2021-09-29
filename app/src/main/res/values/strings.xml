@@ -77,7 +77,7 @@
     <string name="Cancel_btn">Back</string>
 
     <string name="My_Article">My Article</string>
-
+  
     <string name="txt_update_head">Update Article</string>
     <string name="update_Cancel_btn">Back</string>
     <string name="update_Complete_btn">complete</string>
@@ -100,7 +100,12 @@
     <string name="my_ev_title">Created Events</string>
     <string name="event_com">Comments</string>
     <string name="hint_ev">Comment</string>
-
+    <string name="title_home">Home</string>
+    <string name="title_book">Books</string>
+    <string name="title_article">Articles</string>
+    <string name="title_req">Requests</string>
+    <string name="title_events">Events</string>
+  
     //kaveenstrings
     <string name="BookReq">ReqBookheading</string>
     <string name="submitReq">SUBMIT</string>

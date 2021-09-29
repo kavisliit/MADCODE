@@ -94,7 +94,9 @@ public class user_registration extends AppCompatActivity {
                                             map.put("email",email.getText().toString());
                                             map.put("phone",phone.getText().toString());
                                             map.put("dob",dob.getText().toString());
-                                            FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(map)
+                                            FirebaseDatabase.getInstance().getReference("Users")
+                                                    .child(FirebaseAuth.getInstance()
+                                                    .getCurrentUser().getUid()).setValue(map)
                                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                         @Override
                                                         public void onComplete(@NonNull @NotNull Task<Void> task) {
