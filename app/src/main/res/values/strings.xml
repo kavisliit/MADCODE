@@ -66,7 +66,7 @@
     <string name="cur_user">Current Memebers</string>
     <string name="uri_event_get">Pic URL</string>
 
-    <string name="create_head">Edit Article</string>
+    <string name="create_head">Create Article</string>
     <string name="image_upload">" Image Upload"</string>
     <string name="head_line_input_txt" />
     <string name="sub_topic_input_txt" />
