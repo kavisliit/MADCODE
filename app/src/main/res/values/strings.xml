@@ -100,7 +100,11 @@
     <string name="my_ev_title">Created Events</string>
     <string name="event_com">Comments</string>
     <string name="hint_ev">Comment</string>
-    <string name="event_com">Comments</string>s
+    <string name="title_home">Home</string>
+    <string name="title_book">Books</string>
+    <string name="title_article">Articles</string>
+    <string name="title_req">Requests</string>
+    <string name="title_events">Events</string>
 
 
 </resources>

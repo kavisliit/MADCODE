@@ -1,4 +1,5 @@
 package com.example.madcode.Events;
+
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
@@ -14,7 +15,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+
 import com.example.madcode.Eventmain;
 import com.example.madcode.R;
 import com.example.madcode.nav_activity;
@@ -25,10 +28,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
+
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+
 import es.dmoral.toasty.Toasty;
 
 public class Add_Event extends nav_activity {
@@ -48,7 +53,7 @@ public class Add_Event extends nav_activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //  setContentView(R.layout.activity_add_event);
+     setContentView(R.layout.activity_add_event);
         LayoutInflater inflater = LayoutInflater.from(this);
         View my = inflater.inflate(R.layout.activity_add_event,null,false);
         cl.addView(my,0);
@@ -87,7 +92,7 @@ public class Add_Event extends nav_activity {
             }
         });
 
-        //method for back button
+       // method for back button
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

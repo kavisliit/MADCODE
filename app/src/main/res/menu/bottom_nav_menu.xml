@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_book"
+        android:icon="@drawable/ic_baseline_book_24"
+        android:title="@string/title_book" />
+
+    <item
+        android:id="@+id/navigation_article"
+        android:icon="@drawable/ic_baseline_article_24"
+        android:title="@string/title_article" />
+    <item
+        android:id="@+id/navigation_request"
+        android:icon="@drawable/ic_baseline_arrow_downward_24"
+        android:title="@string/title_req" />
+    <item
+        android:id="@+id/navigation_event"
+        android:icon="@drawable/ic_baseline_event_24"
+        android:title="@string/title_events" />
+
+</menu>

@@ -37,17 +37,6 @@ public class my_event_list extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_event_list);
-//        LayoutInflater inflater = LayoutInflater.from(this);
-//        View v = inflater.inflate(R.layout.activity_my_event_list,null,false);
-//        cl.addView(v,0);
-
-
-//        flipper1 = findViewById(R.id.view_flipper1);
-//        int images[] = {R.drawable.event_main,R.drawable.event_main2,R.drawable.event_main3};
-//
-//        for(int image:images){
-//            flipperimages(image);
-//        }
 
 
         setOnClickListner();
@@ -57,7 +46,6 @@ public class my_event_list extends AppCompatActivity {
 
         curuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
         list = new ArrayList<>();
-        //geteventlist();
         adapter = new my_event_adapter(this, list, listner);
         rec.setLayoutManager(new LinearLayoutManager(this));
         rec.setHasFixedSize(true);

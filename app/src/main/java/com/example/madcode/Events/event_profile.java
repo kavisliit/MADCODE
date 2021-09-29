@@ -207,7 +207,8 @@ public class event_profile extends AppCompatActivity {
                                            @Override
                                            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
                                                Toasty.success(event_profile.this, "Leave successfully", Toast.LENGTH_SHORT).show();
-                                               join.setBackgroundColor(event_profile.this.getResources().getColor(R.color.main_color));
+                                               join.setBackgroundColor(event_profile.this.getResources()
+                                                       .getColor(R.color.main_color));
                                                join.setText("Join");
                                                in = 1;
                                            }
