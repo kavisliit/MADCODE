@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MADCODE</string>
+    <string name="app_name">Pick a Book</string>
 
     <string name="create_event">Create an Event</string>
     <string name="get_name">Enter the Name</string>
@@ -105,6 +105,19 @@
     <string name="title_article">Articles</string>
     <string name="title_req">Requests</string>
     <string name="title_events">Events</string>
+
+    //kaveenstrings
+    <string name="BookReq">ReqBookheading</string>
+    <string name="submitReq">SUBMIT</string>
+    <string name="Request_Book">Request Book</string>
+    <string name="canclereq">Cancle</string>
+    <string name="reqformtitle">Book Request</string>
+    <string name="pasteheretxt">Paste Image URL</string>
+    <string name="reqimg">Image URL</string>
+    <string name="textview">TextView</string>
+    <string name="editbookreq">Edit Request</string>
+    <string name="edittxtheading">Edit Request Book</string>
+    <string name="updatebtn">UPDATE</string>
 
 
 </resources>

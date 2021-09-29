@@ -1,4 +1,5 @@
-package com.example.madcode.Article;
+package com.example.madcode.Request;
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.madcode.Article.Model.ArticleModel;
 import com.example.madcode.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,40 +20,35 @@ import com.google.firebase.database.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class ArticleMainPageCustomer extends AppCompatActivity {
+public class RequestBook extends AppCompatActivity {
 
     RecyclerView rec;
     DatabaseReference database;
-    Article_adapter_customer adapter;
-    ArrayList<ArticleModel> list;
+    Req_adapter adapter;
+    ArrayList<reqmodal> list;
     ArrayList<String> getArticleId = new ArrayList<>();
     String ArticleId;
-    private Article_adapter_customer.RecyclerViewClickListner listner;
+    private Req_adapter.RecyclerViewClickListner listner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_article_main_page_customer);
+        setContentView(R.layout.activity_request_book);
 
-
-        //article click
         setOnClickListner();
-        rec = findViewById(R.id.recyclerView2);
-        //get reference form database
-        database = FirebaseDatabase.getInstance().getReference("ArticleModel");
+        rec = findViewById(R.id.recyclerViewR);
+        database = FirebaseDatabase.getInstance().getReference("reqmodal");
         rec.setHasFixedSize(true);
         rec.setLayoutManager(new LinearLayoutManager(this));
-
         list = new ArrayList<>();
-        adapter = new Article_adapter_customer(this,list,listner);
+        adapter = new Req_adapter(this,list,listner);
         rec.setAdapter(adapter);
-
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 for(DataSnapshot dn : snapshot.getChildren()){
                     ArticleId = dn.getKey();
-                    ArticleModel ev = dn.getValue(ArticleModel.class);
+                    reqmodal ev = dn.getValue(reqmodal.class);
                     list.add(ev);
                     getArticleId.add(ArticleId);
                 }
@@ -68,27 +63,28 @@ public class ArticleMainPageCustomer extends AppCompatActivity {
 
     }
 
-
-//when click the article pass the data to article view page
     private void setOnClickListner() {
-        listner = new Article_adapter_customer.RecyclerViewClickListner() {
+        listner = new Req_adapter.RecyclerViewClickListner() {
             @Override
             public void onClick(View v, int position) {
-                Intent in = new Intent(getApplicationContext(), ArticleViewPageCustomer.class);
-
-                //pass the current page id to display
+                Intent in = new Intent(getApplicationContext(), ReqView.class);
                 in.putExtra("AID",getArticleId.get(position));
-                //pass the data to view page (display)
-                in.putExtra("Head_line",list.get(position).getHead_line());
-                in.putExtra("Small_description",list.get(position).getSmall_description());
-                in.putExtra("Sub_topic",list.get(position).getSub_topic());
-                in.putExtra("Description",list.get(position).getDescription());
-                in.putExtra("propic",list.get(position).getPurl());
-
+                in.putExtra("book_name",list.get(position).getBook_name());
+                in.putExtra("book_authur",list.get(position).getBook_authur());
+                in.putExtra("book_publisher",list.get(position).getBook_publisher());
+                in.putExtra("book_description",list.get(position).getBook_description());
+                in.putExtra("ReqUrl",list.get(position).getReqUrl());
                 startActivity(in);
+
             }
         };
+    }
 
+
+    public void ReqAddToForm(View view){
+        Intent intent = new Intent(this,bookreqform.class);
+        startActivity(intent);
     }
 
 }
+

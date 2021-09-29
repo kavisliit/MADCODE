@@ -2,17 +2,18 @@ package com.example.madcode.Article.Model;
 
 public class ArticleModel
 {
-  String Head_line,Small_description,Sub_topic, Description,purl;
+  String Head_line,Small_description,Sub_topic, Description,purl,CurrentUserId;
     ArticleModel()
     {
 
     }
-    public ArticleModel(String Head_line, String Small_description, String Sub_topic, String Description, String purl) {
+    public ArticleModel(String Head_line, String Small_description, String Sub_topic, String Description, String purl, String CurrentUserId) {
         this.Head_line = Head_line;
         this.Small_description = Small_description;
         this.Sub_topic = Sub_topic;
         this.Description = Description;
         this.purl = purl;
+        this.CurrentUserId=CurrentUserId;
     }
 
     public String getHead_line() {
@@ -53,5 +54,13 @@ public class ArticleModel
 
     public void setPurl(String purl) {
         this.purl = purl;
+    }
+
+    public String getCurrentUserId() {
+        return CurrentUserId;
+    }
+
+    public void setCurrentUserId(String currentUserId) {
+        CurrentUserId = currentUserId;
     }
 }
