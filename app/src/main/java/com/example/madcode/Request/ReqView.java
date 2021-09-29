@@ -25,7 +25,7 @@ import com.google.firebase.database.annotations.NotNull;
 public class ReqView extends AppCompatActivity {
 
     ImageButton buttonEdit,buttonDelete;
-    String AID ;
+    String RID ;
     String txt = "not set";
     String txt1 = "not set";
     String txt2 = "not set";
@@ -60,7 +60,7 @@ public class ReqView extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ReqView.this,ReqEdit.class);
 
-                intent.putExtra("AID",AID);
+                intent.putExtra("RID",RID);
                 //pass the data to view page (display)
                 intent.putExtra("book_name",txt);
                 intent.putExtra("book_authur",txt1);
@@ -83,7 +83,7 @@ public class ReqView extends AppCompatActivity {
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        FirebaseDatabase.getInstance().getReference("reqmodal").child(AID).removeValue(new DatabaseReference.CompletionListener() {
+                        FirebaseDatabase.getInstance().getReference("reqmodal").child(RID).removeValue(new DatabaseReference.CompletionListener() {
                             @Override
                             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
                                 Toast.makeText(ReqView.this, "deleted succesfully", Toast.LENGTH_SHORT).show();
@@ -104,11 +104,11 @@ public class ReqView extends AppCompatActivity {
 
 
 
-//display data view page
+//display request view page
         Bundle extras = getIntent().getExtras();
         if(extras != null){
 
-            AID = extras.getString("AID");
+            RID = extras.getString("RID");
             txt = extras.getString("book_name");
             txt1 = extras.getString("book_authur");
             txt2 = extras.getString("book_publisher");

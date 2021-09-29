@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADCODE">
         <activity
-
+            android:name=".Request.CustumerRequestBook"
+            android:exported="true" />
+        <activity
             android:name=".Events.event_comments"
             android:exported="true" />
         <activity
@@ -21,15 +23,12 @@
         <activity
             android:name=".Request.RequestBook"
             android:exported="true" />
-      
         <activity
             android:name=".Request.ReqEdit"
             android:exported="true" />
-      
         <activity
             android:name=".Request.bookreqform"
             android:exported="true" />
-      
         <activity android:name=".Events.My_event_edit" />
         <activity android:name=".Events.My_event_profile" />
         <activity android:name=".Events.my_event_list" />
@@ -37,7 +36,7 @@
         <activity android:name=".Events.user_events" />
         <activity android:name=".User.Forget_password" />
         <activity android:name=".User.user_profile" />
-        <activity android:name=".login" >
+        <activity android:name=".login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -61,23 +60,12 @@
             android:exported="true" />
         <activity android:name=".Eventmain" />
         <activity
-            android:name=".Sudewa"
-            android:exported="true" />
-        <activity
             android:name=".Events.Add_Event"
-            android:exported="true" />
-        <activity
-            android:name=".kaveenkg"
-            android:exported="true" />
-        <activity
-            android:name=".sharebook"
             android:exported="true" />
         <activity
             android:name=".Article.My_Article"
             android:exported="true" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".Article.ArticleViewPage" />
 
         <meta-data

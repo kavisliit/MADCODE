@@ -66,7 +66,7 @@
     <string name="cur_user">Current Memebers</string>
     <string name="uri_event_get">Pic URL</string>
 
-    <string name="create_head">Edit Article</string>
+    <string name="create_head">Create Article</string>
     <string name="image_upload">" Image Upload"</string>
     <string name="head_line_input_txt" />
     <string name="sub_topic_input_txt" />
@@ -77,7 +77,7 @@
     <string name="Cancel_btn">Back</string>
 
     <string name="My_Article">My Article</string>
-
+  
     <string name="txt_update_head">Update Article</string>
     <string name="update_Cancel_btn">Back</string>
     <string name="update_Complete_btn">complete</string>
@@ -105,7 +105,7 @@
     <string name="title_article">Articles</string>
     <string name="title_req">Requests</string>
     <string name="title_events">Events</string>
-
+  
     //kaveenstrings
     <string name="BookReq">ReqBookheading</string>
     <string name="submitReq">SUBMIT</string>

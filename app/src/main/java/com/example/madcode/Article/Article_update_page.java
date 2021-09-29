@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import es.dmoral.toasty.Toasty;
 
 public class Article_update_page extends AppCompatActivity {
 
@@ -85,22 +88,23 @@ public class Article_update_page extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(purl.getContext());
-                builder.setTitle("Delete Panel");
-                builder.setMessage("Delete...?");
-
+                builder.setTitle("Are You Sure You Want to ❌");
+                builder.setMessage("Delete Article ...?🚮");
+                //check validation Yes or No and When Click Yes
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         FirebaseDatabase.getInstance().getReference("ArticleModel").child(AID).removeValue(new DatabaseReference.CompletionListener() {
                             @Override
                             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                                Toast.makeText(Article_update_page.this, "deleted succesfully", Toast.LENGTH_SHORT).show();
+                                Toasty.info(getApplicationContext(), "Delete Successfully 🚮", Toast.LENGTH_SHORT, true).show();
                                 Intent in = new Intent(Article_update_page.this,My_Article.class);
                                 startActivity(in);
                             }
                         });
                     }
                 });
+                //When Click No
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -118,11 +122,39 @@ public class Article_update_page extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
+
                 name  = Head_line.getText().toString();
                 name2  = Small_description.getText().toString();
                 name3  = Sub_topic.getText().toString();
                 name4  = Description.getText().toString();
                 name5  = purl.getText().toString();
+
+                if(TextUtils.isEmpty(Head_line.getText().toString()))
+                {
+                    Toasty.error(getApplicationContext(), "Head Line Required ❗", Toast.LENGTH_SHORT, true).show();
+                    return;
+                }
+                if(TextUtils.isEmpty(Small_description.getText().toString()))
+                {
+                    Toasty.error(getApplicationContext(), "Small description Required ❗", Toast.LENGTH_SHORT, true).show();
+                    return;
+                }
+                if(TextUtils.isEmpty(Sub_topic.getText().toString()))
+                {
+                    Toasty.error(getApplicationContext(), "Sub topic Required ❗", Toast.LENGTH_SHORT, true).show();
+                    return;
+                }
+                if(TextUtils.isEmpty(Description.getText().toString()))
+                {
+                    Toasty.error(getApplicationContext(), "Description Required ❗", Toast.LENGTH_SHORT, true).show();
+                    return;
+                }
+                if(TextUtils.isEmpty(purl.getText().toString()))
+                {
+                    Toasty.error(getApplicationContext(), "Url Required ❗", Toast.LENGTH_SHORT, true).show();
+                    return;
+                }
 
                         Map<String,Object> map = new HashMap<>();
                         map.put("Head_line",name);
@@ -136,7 +168,7 @@ public class Article_update_page extends AppCompatActivity {
                                 .updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
-                                        Toast.makeText(Article_update_page.this, "success", Toast.LENGTH_SHORT).show();
+                                        Toasty.warning(getApplicationContext(), "Update Success✔", Toast.LENGTH_SHORT, true).show();
                                         Intent in = new Intent(Article_update_page.this,My_Article.class);
                                         startActivity(in);
                                     }
