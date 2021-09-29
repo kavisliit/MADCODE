@@ -128,15 +128,17 @@ public class My_event_profile extends AppCompatActivity {
             public void onClick(View view) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(img.getContext());
                 builder.setTitle("Delete Panel");
-                builder.setMessage("Delete...?");
+                builder.setMessage("Are you sure you want to Delete...?");
 
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        FirebaseDatabase.getInstance().getReference("Events").child(eid).removeValue(new DatabaseReference.CompletionListener() {
+                        FirebaseDatabase.getInstance().getReference("Events").child(eid)
+                                .removeValue(new DatabaseReference.CompletionListener() {
                             @Override
                             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                                Toast.makeText(My_event_profile.this, "deleted succesfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(My_event_profile.this, "deleted succesfully", Toast.LENGTH_SHORT)
+                                        .show();
                                 Intent in = new Intent(My_event_profile.this, my_event_list.class);
                                 startActivity(in);
                             }

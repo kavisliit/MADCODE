@@ -9,11 +9,16 @@
     <TextView
         android:id="@+id/reg"
         android:layout_width="105dp"
-        android:layout_height="25dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="24dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/sign_up_user"
         android:textColor="@color/main_color"
         android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="@+id/textView5" />
 
@@ -51,33 +56,37 @@
 
     <TextView
         android:id="@+id/forget_pass"
-        android:layout_width="127dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginBottom="103dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/forget_pass_user"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/pass_txt"
-        app:layout_constraintTop_toBottomOf="@+id/pass_txt" />
+        app:layout_constraintBottom_toTopOf="@+id/reg"
+        app:layout_constraintEnd_toEndOf="@+id/login_btn"
+        app:layout_constraintStart_toStartOf="@+id/login_btn"
+        app:layout_constraintTop_toBottomOf="@+id/login_btn" />
 
     <Button
         android:id="@+id/login_btn"
         android:layout_width="219dp"
         android:layout_height="62dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="490dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/Log_in"
         android:textAllCaps="true"
         android:textColor="@color/white"
         app:backgroundTint="@color/main_color"
+        app:layout_constraintBottom_toTopOf="@+id/forget_pass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forget_pass" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="184dp"
         android:layout_height="24dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/acc"
         android:textColor="@color/black"
@@ -89,13 +98,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="343dp"
-        android:layout_height="300dp"
+        android:layout_width="206dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo_ev" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

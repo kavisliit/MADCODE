@@ -90,7 +90,7 @@ public class Article_update_page extends AppCompatActivity {
                 AlertDialog.Builder builder=new AlertDialog.Builder(purl.getContext());
                 builder.setTitle("Are You Sure You Want to ❌");
                 builder.setMessage("Delete Article ...?🚮");
-
+                //check validation Yes or No and When Click Yes
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -104,6 +104,7 @@ public class Article_update_page extends AppCompatActivity {
                         });
                     }
                 });
+                //When Click No
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
