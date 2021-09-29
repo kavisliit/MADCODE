@@ -71,7 +71,7 @@
         android:background="@drawable/forget"
         android:ems="10"
         android:hint="@string/enter_password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:textColorHint="@color/margin"
         app:layout_constraintStart_toStartOf="@+id/user_txt1"
         app:layout_constraintTop_toBottomOf="@+id/user_txt1" />

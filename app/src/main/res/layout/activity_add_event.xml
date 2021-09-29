@@ -154,7 +154,7 @@
             android:ems="10"
             android:fontFamily="sans-serif-light"
             android:hint="@string/uri_event_get"
-            android:inputType="number"
+            android:inputType="textUri"
             android:padding="9dp"
             app:layout_constraintEnd_toEndOf="@+id/ptext3"
             app:layout_constraintHorizontal_bias="1.0"

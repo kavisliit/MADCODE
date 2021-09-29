@@ -76,7 +76,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             return;
         }
         if(passwo.isEmpty()){
-            pass.setError("password id required!!");
+            pass.setError("password is required!!");
             pass.requestFocus();
             return;
         }
