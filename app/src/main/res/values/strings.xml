@@ -106,7 +106,7 @@
     <string name="title_req">Requests</string>
     <string name="title_events">Events</string>
 
-    //kaveenstrings
+    
     <string name="BookReq">ReqBookheading</string>
     <string name="submitReq">SUBMIT</string>
     <string name="Request_Book">Request Book</string>
@@ -118,6 +118,7 @@
     <string name="editbookreq">Edit Request</string>
     <string name="edittxtheading">Edit Request Book</string>
     <string name="updatebtn">UPDATE</string>
+    <string name="menu_bo">Books</string>
     <string name="updatehead">"update "</string>
 
 
@@ -130,6 +131,7 @@
     <string name="input_catogery">Book Category</string>
     <string name="input_description">Description</string>
     <string name="input_auther">Book Author</string>
+
 
 
 </resources>
