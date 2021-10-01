@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADCODE">
         <activity
+            android:name=".MainSpashScreenActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".Sharebook.Sharebook_Cus"
             android:exported="true" />
         <activity
@@ -46,11 +55,11 @@
         <activity android:name=".User.Forget_password" />
         <activity android:name=".User.user_profile" />
         <activity android:name=".login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity android:name=".User.user_registration" />
         <activity android:name=".nav_activity" />
