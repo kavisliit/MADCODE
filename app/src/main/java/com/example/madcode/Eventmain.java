@@ -3,16 +3,20 @@ package com.example.madcode;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.madcode.Article.ArticleMainPageCustomer;
 import com.example.madcode.Events.Add_Event;
 import com.example.madcode.Events.Event_adapter;
 import com.example.madcode.Events.event_profile;
 import com.example.madcode.Events.Models.Event;
+import com.example.madcode.Request.RequestBook;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -46,6 +50,42 @@ public class  Eventmain extends nav_activity{
         cl.addView(v,0);
 
 
+        BottomNavigationView bv = findViewById(R.id.bottom_nav_main);
+        bv.setSelectedItemId(R.id.navigation_event);
+
+        bv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.navigation_event:
+                        return true;
+
+                    case R.id.navigation_home:
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.navigation_book:
+                        startActivity(new Intent(getApplicationContext(), Add_Event.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+
+                    case R.id.navigation_article:
+                        startActivity(new Intent(getApplicationContext(), ArticleMainPageCustomer.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.navigation_request:
+                        startActivity(new Intent(getApplicationContext(), RequestBook.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+
+                }
+                return false;
+            }
+        });
 
 
 

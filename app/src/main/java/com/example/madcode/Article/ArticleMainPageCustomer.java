@@ -2,6 +2,7 @@ package com.example.madcode.Article;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -10,7 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.madcode.Article.Model.ArticleModel;
+import com.example.madcode.Eventmain;
+import com.example.madcode.Events.Add_Event;
+import com.example.madcode.MainActivity;
 import com.example.madcode.R;
+import com.example.madcode.Request.RequestBook;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +40,45 @@ public class ArticleMainPageCustomer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_main_page_customer);
+
+
+        BottomNavigationView bv = findViewById(R.id.bottom_nav_main);
+        bv.setSelectedItemId(R.id.navigation_article);
+
+        bv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.navigation_event:
+                        startActivity(new Intent(getApplicationContext(), Eventmain.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.navigation_home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.navigation_book:
+                        startActivity(new Intent(getApplicationContext(), Add_Event.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+
+                    case R.id.navigation_article:
+                        return true;
+
+                    case R.id.navigation_request:
+                        startActivity(new Intent(getApplicationContext(), RequestBook.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+
+                }
+                return false;
+            }
+        });
+
 
 
         //article click

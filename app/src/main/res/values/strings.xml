@@ -118,6 +118,7 @@
     <string name="editbookreq">Edit Request</string>
     <string name="edittxtheading">Edit Request Book</string>
     <string name="updatebtn">UPDATE</string>
+    <string name="menu_bo">Books</string>
 
 
 </resources>
