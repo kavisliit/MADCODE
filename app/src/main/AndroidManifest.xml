@@ -12,7 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADCODE">
         <activity
-            android:name=".Request.CustumerRequestBook"
+            android:name=".Sharebook.Sharebook_Cus"
+            android:exported="true" />
+        <activity
+            android:name=".Sharebook.Sharebookview_Cus"
+            android:exported="true" />
+        <activity
+            android:name=".Request.CusReqView"
+            android:exported="true" />
+        <activity
+            android:name=".Request.CusRequestBook"
             android:exported="true" />
         <activity
             android:name=".Events.event_comments"
@@ -65,8 +74,20 @@
         <activity
             android:name=".Article.My_Article"
             android:exported="true" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".Article.ArticleViewPage" />
+        <activity
+            android:name=".Sharebook.Sharebook_updatepage"
+            android:exported="true" />
+        <activity
+            android:name=".Sharebook.Sharebook_viewpage"
+            android:exported="true" />
+        <activity
+            android:name=".Sharebook.sharebook"
+            android:exported="true" />
+        <activity
+            android:name=".Sharebook.share_menu"
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"

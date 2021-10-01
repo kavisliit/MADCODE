@@ -77,7 +77,7 @@
     <string name="Cancel_btn">Back</string>
 
     <string name="My_Article">My Article</string>
-  
+
     <string name="txt_update_head">Update Article</string>
     <string name="update_Cancel_btn">Back</string>
     <string name="update_Complete_btn">complete</string>
@@ -105,8 +105,8 @@
     <string name="title_article">Articles</string>
     <string name="title_req">Requests</string>
     <string name="title_events">Events</string>
-  
-    //kaveenstrings
+
+    
     <string name="BookReq">ReqBookheading</string>
     <string name="submitReq">SUBMIT</string>
     <string name="Request_Book">Request Book</string>
@@ -119,6 +119,19 @@
     <string name="edittxtheading">Edit Request Book</string>
     <string name="updatebtn">UPDATE</string>
     <string name="menu_bo">Books</string>
+    <string name="updatehead">"update "</string>
+
+
+    <string name="ShareBooks">ShareBooks</string>
+    <string name="book_name">Book Name</string>
+    <string name="book_category">Category</string>
+    <string name="book_author">Book Author</string>
+    <string name="book_description">Book Description</string>
+    <string name="input_name">Book Name</string>
+    <string name="input_catogery">Book Category</string>
+    <string name="input_description">Description</string>
+    <string name="input_auther">Book Author</string>
+
 
 
 </resources>

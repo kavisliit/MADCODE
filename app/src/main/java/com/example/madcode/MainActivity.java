@@ -10,9 +10,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.madcode.Article.ArticleMainPageCustomer;
+
 import com.example.madcode.Events.Add_Event;
 import com.example.madcode.Events.Models.Event;
 import com.example.madcode.Events.Models.main_model;
+
+import com.example.madcode.Article.My_Article;
+//import com.example.madcode.Request.CusRequestBook;
+//import com.example.madcode.Sharebook.share_menu;
+//import com.example.madcode.User.user_profile;
+
 import com.example.madcode.Request.RequestBook;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -106,6 +113,7 @@ public class MainActivity extends nav_activity {
     }
 
 
+
 //    public void MainToMyCreate(View view){
 //        Intent intent = new Intent(this, My_Article.class);
 //        startActivity(intent);
@@ -122,5 +130,16 @@ public class MainActivity extends nav_activity {
 //        Intent intent = new Intent(this, RequestBook.class);
 //        startActivity(intent);
 //    }
+
+
+   // public void MainToAllRequestBook(View view){
+  //      Intent intent = new Intent(this, CusRequestBook.class);
+  //      startActivity(intent);
+  //  }
+
+ //   public void MainToSharemenu(View view) {
+ //       Intent intent = new Intent(this, share_menu.class);
+ //       startActivity(intent);
+  //  }
 
 }
