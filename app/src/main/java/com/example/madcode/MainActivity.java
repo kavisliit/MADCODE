@@ -6,6 +6,7 @@ import android.view.View;
 import com.example.madcode.Article.ArticleMainPageCustomer;
 import com.example.madcode.Article.My_Article;
 import com.example.madcode.Request.CusRequestBook;
+import com.example.madcode.Sharebook.share_menu;
 import com.example.madcode.User.user_profile;
 import com.example.madcode.Request.RequestBook;
 
@@ -42,4 +43,8 @@ public class MainActivity extends nav_activity {
         startActivity(intent);
     }
 
+    public void MainToSharemenu(View view) {
+        Intent intent = new Intent(this, share_menu.class);
+        startActivity(intent);
+    }
 }

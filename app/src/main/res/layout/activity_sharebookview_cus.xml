@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Request.ReqView">
+
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="394dp"
+        android:layout_height="280dp"
+        android:background="@color/madgreen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/shareimg"
+        android:layout_width="147dp"
+        android:layout_height="133dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
+        android:src="@mipmap/ic_launcher_round"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="0.008"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/sharecategory"
+        android:layout_width="291dp"
+        android:layout_height="35dp"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center|center_horizontal"
+        android:text="@string/textview"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toBottomOf="@+id/shareauthor"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/shareauthor"
+        android:layout_width="291dp"
+        android:layout_height="23dp"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center|center_horizontal"
+        android:text="@string/textview"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toBottomOf="@+id/sharehead" />
+
+    <TextView
+        android:id="@+id/sharehead"
+        android:layout_width="287dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center|center_horizontal"
+        android:text="@string/textview"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toBottomOf="@+id/shareimg" />
+
+    <ImageButton
+        android:id="@+id/imageView3"
+        android:layout_width="67dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/madgreen"
+        android:backgroundTintMode="multiply"
+        android:onClick="ViewToCusShare"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        app:layout_constraintVertical_bias="0.092"
+        app:srcCompat="@drawable/backicon"
+        tools:ignore="OnClick,SpeakableTextPresentCheck" />
+
+    <ScrollView
+        android:id="@+id/shareinfo"
+        android:layout_width="325dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3">
+
+        <TextView
+            android:id="@+id/shareviewmulti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|top"
+            android:justificationMode="inter_word"
+            android:text="textMultiLine"
+            android:textSize="18sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </ScrollView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
