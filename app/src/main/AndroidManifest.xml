@@ -21,10 +21,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Sharebook.Sharebook_Cus"
+            android:name=".Sharebook.Share_menu_Cus"
             android:exported="true" />
         <activity
-            android:name=".Sharebook.Sharebookview_Cus"
+            android:name=".Sharebook.Sharebook_viewpage_cus"
             android:exported="true" />
         <activity
             android:name=".Request.CusReqView"
@@ -92,10 +92,10 @@
             android:name=".Sharebook.Sharebook_viewpage"
             android:exported="true" />
         <activity
-            android:name=".Sharebook.sharebook"
+            android:name=".Sharebook.Sharebook_create"
             android:exported="true" />
         <activity
-            android:name=".Sharebook.share_menu"
+            android:name=".Sharebook.Share_menu"
             android:exported="true" />
 
         <meta-data

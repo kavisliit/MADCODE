@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class MainSpashScreenActivity extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN = 5000;
+    private static int SPLASH_SCREEN = 3000;
 
     //variables
     Animation topAnimation,bottomAnimation;
