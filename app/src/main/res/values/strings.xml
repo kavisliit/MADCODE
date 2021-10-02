@@ -131,6 +131,9 @@
     <string name="input_catogery">Book Category</string>
     <string name="input_description">Description</string>
     <string name="input_auther">Book Author</string>
+    <string name="Articles_title">Articles</string>
+    <string name="title_Request">Requests</string>
+    <string name="title_eve">Events</string>
 
 
 </resources>
