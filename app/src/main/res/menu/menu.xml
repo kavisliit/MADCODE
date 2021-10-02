@@ -8,33 +8,34 @@
             android:title="Home" />
 
         <item
-            android:id="@+id/ig"
+            android:id="@+id/profile"
             android:icon="@drawable/ic_baseline_supervised_user_circle_24"
             android:title="Profile" />
 
         <item
-            android:id="@+id/yt"
+            android:id="@+id/mybooks"
             android:icon="@drawable/ic_baseline_book_24"
             android:title="My Books" />
 
 
         <item
+            android:id="@+id/My_Requests"
             android:icon="@drawable/ic_baseline_arrow_downward_24"
             android:title="My Requests" />
 
 
         <item
-            android:id="@+id/msg"
+            android:id="@+id/My_Articles"
             android:icon="@drawable/ic_baseline_article_24"
             android:title="My Articles" />
 
         <item
-            android:id="@+id/em"
+            android:id="@+id/My_Events"
             android:icon="@drawable/ic_baseline_event_24"
             android:title="My Events" />
 
         <item
-            android:id="@+id/call"
+            android:id="@+id/logout_2"
             android:icon="@drawable/ic_baseline_lock_open_24"
             android:title="Logout" />
 
