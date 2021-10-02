@@ -1,9 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".sharebook">
+    android:gravity="center"
+    tools:context=".Sharebook.sharebook"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/btn_sback"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="-165dp"
+        android:layout_marginTop="-40dp"
+        android:background="@drawable/back_btn"
+        tools:ignore="SpeakableTextPresentCheck" />
+    <ImageView
+        android:id="@+id/sharebook_l2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/sharelogo" />
+
+    <ImageView
+        android:id="@+id/sharebook_l"
+        android:layout_width="281dp"
+        android:layout_height="21dp"
+        app:srcCompat="@drawable/shareb"
+        tools:ignore="ImageContrastCheck" />
+
+    <EditText
+        android:id="@+id/surl"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/forget"
+        android:hint="Enter image url" />
+
+
+    <EditText
+        android:id="@+id/sbook_name"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/forget"
+        android:hint="@string/book_name"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/sbook_category"
+        android:layout_width="320dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/forget"
+        android:hint="@string/book_category"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/sbook_author"
+        android:layout_width="320dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/forget"
+        android:hint="@string/book_author"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/sbook_description"
+        android:layout_width="320dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/forget"
+        android:hint="@string/book_description" />
+
+    <ImageButton
+        android:id="@+id/btn_sget"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:background="@drawable/btn_complete"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

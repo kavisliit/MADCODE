@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADCODE">
         <activity
+            android:name=".MainSpashScreenActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Sharebook.Sharebook_Cus"
+            android:exported="true" />
+        <activity
+            android:name=".Sharebook.Sharebookview_Cus"
+            android:exported="true" />
+        <activity
             android:name=".Request.CusReqView"
             android:exported="true" />
         <activity
@@ -40,11 +55,11 @@
         <activity android:name=".User.Forget_password" />
         <activity android:name=".User.user_profile" />
         <activity android:name=".login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity android:name=".User.user_registration" />
         <activity android:name=".nav_activity" />
@@ -70,6 +85,18 @@
             android:exported="true" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Article.ArticleViewPage" />
+        <activity
+            android:name=".Sharebook.Sharebook_updatepage"
+            android:exported="true" />
+        <activity
+            android:name=".Sharebook.Sharebook_viewpage"
+            android:exported="true" />
+        <activity
+            android:name=".Sharebook.sharebook"
+            android:exported="true" />
+        <activity
+            android:name=".Sharebook.share_menu"
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"

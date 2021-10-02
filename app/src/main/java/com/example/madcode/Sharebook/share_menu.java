@@ -1,4 +1,4 @@
-package com.example.madcode;
+package com.example.madcode.Sharebook;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,15 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.madcode.Article.ArticleMainPageCustomer;
 import com.example.madcode.Article.My_Article;
-import com.example.madcode.Events.Add_Event;
-import com.example.madcode.Events.Event_adapter;
-import com.example.madcode.Events.Models.Event;
-import com.example.madcode.Events.event_profile;
+import com.example.madcode.Eventmain;
 import com.example.madcode.Events.my_event_list;
+import com.example.madcode.MainActivity;
+import com.example.madcode.R;
 import com.example.madcode.Request.CusRequestBook;
 import com.example.madcode.Request.RequestBook;
-import com.example.madcode.Sharebook.share_menu;
 import com.example.madcode.User.user_profile;
+import com.example.madcode.nav_activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -35,56 +34,54 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class  Eventmain extends nav_activity{
+public class share_menu extends nav_activity{
 
-
-
-    FloatingActionButton fbtn;
-    RecyclerView rec;
+    RecyclerView recyclerView;
+    sharebook sharebook;
+    FloatingActionButton fb;
     DatabaseReference database;
-    Event_adapter adapter;
-    ArrayList<Event> list;
-    ArrayList<String> getid = new ArrayList<>();
-    String id;
-    private Event_adapter.RecyclerViewClickListner listner;
+    com.example.madcode.Sharebook.shareadapter shareadapter;
+    ArrayList<Modelshare> list;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_eventmain);
+       // setContentView(R.layout.activity_share_menu);
         LayoutInflater inflater = LayoutInflater.from(this);
-        View v = inflater.inflate(R.layout.activity_eventmain,null,false);
+        View v = inflater.inflate(R.layout.activity_share_menu,null,false);
         cl.addView(v,0);
 
-       DrawerLayout dl = findViewById(R.id.drawer);
-       NavigationView nav = findViewById(R.id.navwiew);
+
+        DrawerLayout dl = findViewById(R.id.drawer);
+        NavigationView nav = findViewById(R.id.navwiew);
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
                 switch (item.getItemId()){
 
                     case R.id.home:
-                        startActivity(new Intent(Eventmain.this,MainActivity.class));
+                        startActivity(new Intent(share_menu.this, MainActivity.class));
                         break;
 
                     case R.id.profile:
-                        startActivity(new Intent(Eventmain.this, user_profile.class));
+                        startActivity(new Intent(share_menu.this, user_profile.class));
                         break;
 
                     case R.id.mybooks:
-                       // startActivity(new Intent(Eventmain.this, user_profile.class));
+                        // startActivity(new Intent(Eventmain.this, user_profile.class));
                         break;
 
                     case R.id.My_Requests:
-                        startActivity(new Intent(Eventmain.this, RequestBook.class));
+                        startActivity(new Intent(share_menu.this, RequestBook.class));
                         break;
 
                     case R.id.My_Articles:
-                        startActivity(new Intent(Eventmain.this, My_Article.class));
+                        startActivity(new Intent(share_menu.this, My_Article.class));
                         break;
 
                     case R.id.My_Events:
-                        startActivity(new Intent(Eventmain.this, my_event_list.class));
+                        startActivity(new Intent(share_menu.this, my_event_list.class));
                         break;
 
                     case R.id.logout_2:
@@ -99,14 +96,15 @@ public class  Eventmain extends nav_activity{
 
 
         BottomNavigationView bv = findViewById(R.id.bottom_nav_main);
-        bv.setSelectedItemId(R.id.navigation_event);
+        bv.setSelectedItemId(R.id.navigation_book);
 
         bv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.navigation_event:
-
+                        startActivity(new Intent(getApplicationContext(), Eventmain.class));
+                        overridePendingTransition(0,0);
                         return true;
 
                     case R.id.navigation_home:
@@ -115,8 +113,7 @@ public class  Eventmain extends nav_activity{
                         return true;
 
                     case R.id.navigation_book:
-                        startActivity(new Intent(getApplicationContext(), share_menu.class));
-                        overridePendingTransition(0,0);
+
                         return true;
 
                     case R.id.navigation_article:
@@ -135,67 +132,41 @@ public class  Eventmain extends nav_activity{
         });
 
 
+        recyclerView = findViewById(R.id.share_menu);
+        database = FirebaseDatabase.getInstance().getReference("sharebook");
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        setOnClickListner();
-        rec = findViewById(R.id.recyclerView1);
-        database = FirebaseDatabase.getInstance().getReference("Events");
-        rec.setHasFixedSize(true);
-        rec.setLayoutManager(new LinearLayoutManager(this));
-        fbtn = findViewById(R.id.f_btn1);
         list = new ArrayList<>();
-        adapter = new Event_adapter(this,list,listner);
-        rec.setAdapter(adapter);
+        shareadapter = new shareadapter(this,list);
+        recyclerView.setAdapter(shareadapter);
 
-        //method for get data from DB
         database.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                for(DataSnapshot dn : snapshot.getChildren()){
-                    id = dn.getKey();
-                    Event ev = dn.getValue(Event.class);
-                    list.add(ev);
-                   getid.add(id);
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+
+                    Modelshare modelshare = dataSnapshot.getValue(Modelshare.class);
+                    list.add(modelshare);
 
                 }
-                adapter.notifyDataSetChanged();
+
+                shareadapter.notifyDataSetChanged();
             }
 
             @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
 
-    }
 
-
-
-    private void setOnClickListner() {
-        listner = new Event_adapter.RecyclerViewClickListner() {
+        fb = (FloatingActionButton)findViewById(R.id.addshare_book);
+        fb.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v, int position) {
-
-                Intent in = new Intent(getApplicationContext(), event_profile.class);
-                in.putExtra("eid",getid.get(position));
-                in.putExtra("name",list.get(position).getName());
-                in.putExtra("date",list.get(position).getDate());
-                in.putExtra("time",list.get(position).getTime());
-                in.putExtra("type",list.get(position).getType());
-                in.putExtra("max",list.get(position).getMax());
-                in.putExtra("cid",list.get(position).getCid());
-                in.putExtra("uri",list.get(position).getUri());
-
-
-                startActivity(in);
+            public void onClick(View view){
+                startActivity(new Intent(getApplication(), com.example.madcode.Sharebook.sharebook.class));
             }
-        };
-    }
-
-    public void process(View view){
-        startActivity(new Intent(getApplicationContext(), Add_Event.class));
-    }
-
-
-
+        });
 }
-
+}

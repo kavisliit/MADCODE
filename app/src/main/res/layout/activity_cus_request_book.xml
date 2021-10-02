@@ -6,15 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".Request.CusRequestBook">
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemBackground="@color/white"
+        app:itemIconTint="@color/main_color"
+        app:itemTextColor="@color/main_color"
+        app:labelVisibilityMode="selected"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/allreqview"
-        android:layout_width="408dp"
-        android:layout_height="673dp"
+        android:layout_width="387dp"
+        android:layout_height="658dp"
         android:layout_marginTop="57dp"
         android:onClick="AllReqAddToForm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
