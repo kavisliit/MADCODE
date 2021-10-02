@@ -6,10 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".Sharebook.share_menu">
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemBackground="@color/white"
+        app:itemIconTint="@color/main_color"
+        app:itemTextColor="@color/main_color"
+        app:labelVisibilityMode="selected"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/share_menu"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="388dp"
+        android:layout_height="585dp"
         android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,12 +32,12 @@
         android:id="@+id/addshare_book"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginTop="484dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
         android:onClick="MainCreatesbook"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/share_menu"
         app:srcCompat="@android:drawable/ic_input_add"
         tools:ignore="ImageContrastCheck,OnClick,SpeakableTextPresentCheck" />
 

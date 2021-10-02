@@ -7,17 +7,24 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.madcode.Article.ArticleMainPageCustomer;
+import com.example.madcode.Article.My_Article;
 import com.example.madcode.Events.Add_Event;
 import com.example.madcode.Events.Event_adapter;
-import com.example.madcode.Events.event_profile;
 import com.example.madcode.Events.Models.Event;
+import com.example.madcode.Events.event_profile;
+import com.example.madcode.Events.my_event_list;
+import com.example.madcode.Request.CusRequestBook;
 import com.example.madcode.Request.RequestBook;
+import com.example.madcode.Sharebook.share_menu;
+import com.example.madcode.User.user_profile;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,6 +56,47 @@ public class  Eventmain extends nav_activity{
         View v = inflater.inflate(R.layout.activity_eventmain,null,false);
         cl.addView(v,0);
 
+       DrawerLayout dl = findViewById(R.id.drawer);
+       NavigationView nav = findViewById(R.id.navwiew);
+        nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
+                switch (item.getItemId()){
+
+                    case R.id.home:
+                        startActivity(new Intent(Eventmain.this,MainActivity.class));
+                        break;
+
+                    case R.id.profile:
+                        startActivity(new Intent(Eventmain.this, user_profile.class));
+                        break;
+
+                    case R.id.mybooks:
+                       // startActivity(new Intent(Eventmain.this, user_profile.class));
+                        break;
+
+                    case R.id.My_Requests:
+                        startActivity(new Intent(Eventmain.this, RequestBook.class));
+                        break;
+
+                    case R.id.My_Articles:
+                        startActivity(new Intent(Eventmain.this, My_Article.class));
+                        break;
+
+                    case R.id.My_Events:
+                        startActivity(new Intent(Eventmain.this, my_event_list.class));
+                        break;
+
+                    case R.id.logout_2:
+                        //startActivity(new Intent(Eventmain.this, RequestBook.class));
+                        break;
+
+
+                }
+                return false;
+            }
+        });
+
 
         BottomNavigationView bv = findViewById(R.id.bottom_nav_main);
         bv.setSelectedItemId(R.id.navigation_event);
@@ -58,18 +106,18 @@ public class  Eventmain extends nav_activity{
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.navigation_event:
+
                         return true;
 
                     case R.id.navigation_home:
-                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0,0);
                         return true;
 
                     case R.id.navigation_book:
-                        startActivity(new Intent(getApplicationContext(), Add_Event.class));
+                        startActivity(new Intent(getApplicationContext(), share_menu.class));
                         overridePendingTransition(0,0);
                         return true;
-
 
                     case R.id.navigation_article:
                         startActivity(new Intent(getApplicationContext(), ArticleMainPageCustomer.class));
@@ -77,10 +125,9 @@ public class  Eventmain extends nav_activity{
                         return true;
 
                     case R.id.navigation_request:
-                        startActivity(new Intent(getApplicationContext(), RequestBook.class));
+                        startActivity(new Intent(getApplicationContext(), CusRequestBook.class));
                         overridePendingTransition(0,0);
                         return true;
-
 
                 }
                 return false;
