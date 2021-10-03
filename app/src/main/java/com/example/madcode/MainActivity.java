@@ -22,7 +22,8 @@ import com.example.madcode.Request.CusRequestBook;
 import com.example.madcode.Request.RequestBook;
 import com.example.madcode.Request.reqmodal;
 import com.example.madcode.Sharebook.Modelshare;
-import com.example.madcode.Sharebook.share_menu;
+import com.example.madcode.Sharebook.Share_menu;
+import com.example.madcode.Sharebook.Share_menu_Cus;
 import com.example.madcode.User.user_profile;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -38,7 +39,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 //import com.example.madcode.Request.CusRequestBook;
-//import com.example.madcode.Sharebook.share_menu;
+//import com.example.madcode.Sharebook.Share_menu;
 //import com.example.madcode.User.user_profile;
 
 
@@ -76,7 +77,7 @@ public class MainActivity extends nav_activity {
                         break;
 
                     case R.id.mybooks:
-                        // startActivity(new Intent(Eventmain.this, user_profile.class));
+                         startActivity(new Intent(MainActivity.this, Share_menu.class));
                         break;
 
                     case R.id.My_Requests:
@@ -124,7 +125,7 @@ public class MainActivity extends nav_activity {
                         return true;
 
                     case R.id.navigation_book:
-                        startActivity(new Intent(getApplicationContext(), share_menu.class));
+                        startActivity(new Intent(getApplicationContext(), Share_menu_Cus.class));
                         overridePendingTransition(0,0);
                         return true;
 
@@ -145,7 +146,7 @@ public class MainActivity extends nav_activity {
 
 
         ArrayList<main_model> bookuri = new ArrayList<>();
-        db = FirebaseDatabase.getInstance().getReference("sharebook");
+        db = FirebaseDatabase.getInstance().getReference("Sharebook_create");
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -317,7 +318,7 @@ public class MainActivity extends nav_activity {
   //  }
 
  //   public void MainToSharemenu(View view) {
- //       Intent intent = new Intent(this, share_menu.class);
+ //       Intent intent = new Intent(this, Share_menu.class);
  //       startActivity(intent);
   //  }
 

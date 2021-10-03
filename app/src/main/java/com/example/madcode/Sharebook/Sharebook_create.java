@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.madcode.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
@@ -21,17 +22,16 @@ import java.util.Map;
 
 import es.dmoral.toasty.Toasty;
 
-public class sharebook extends AppCompatActivity {
+public class Sharebook_create extends AppCompatActivity {
 
     EditText surl,sbookname,sbookcategory,sbookauthor,sbookdescription;
     ImageButton submit,back;
 
-
+    String ShareBookUserId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sharebook);
-
+        setContentView(R.layout.activity_sharebook_create);
 
 
         surl = (EditText) findViewById(R.id.surl);
@@ -40,11 +40,13 @@ public class sharebook extends AppCompatActivity {
         sbookauthor = (EditText) findViewById(R.id.sbook_author);
         sbookdescription = (EditText) findViewById(R.id.sbook_description);
 
+        ShareBookUserId= FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         back = (ImageButton) findViewById(R.id.btn_sback);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplication(), share_menu.class));
+                startActivity(new Intent(getApplication(), Share_menu.class));
                 finish();
             }
         });
@@ -94,9 +96,8 @@ public class sharebook extends AppCompatActivity {
         map.put( "sbookcategory",sbookcategory.getText().toString());
         map.put( "sbookauthor",sbookauthor.getText().toString());
         map.put( "sbookdes",sbookdescription.getText().toString());
-        FirebaseDatabase.getInstance().getReference().child("sharebook").push()
-                .setValue(map)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
+        map.put( "ShareBookUserId",ShareBookUserId);
+        FirebaseDatabase.getInstance().getReference().child("sharebook").push().setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
                         surl.setText("");
