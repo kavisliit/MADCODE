@@ -11,8 +11,8 @@
         android:id="@+id/btn_sbackupdate"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="-165dp"
-        android:layout_marginTop="-40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
         android:background="@drawable/back_btn"
         android:contentDescription="TODO"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,82 +21,103 @@
 
     <EditText
         android:id="@+id/editsbookname"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="232dp"
+        android:background="@drawable/forget"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/editsbookauthor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.771" />
 
     <EditText
         android:id="@+id/editsbookauthor"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/forget"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/editsbookcategory"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editsbookname" />
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editsbookcategory"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/forget"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/editsbookdes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editsbookauthor" />
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editsbookdes"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="49dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/forget"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Name"
         app:layout_constraintBottom_toTopOf="@+id/editsurl"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editsurl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="206dp"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="160dp"
+        android:background="@drawable/forget"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/updatesbook"
-        android:layout_width="143dp"
-        android:layout_height="55dp"
+        android:layout_width="227dp"
+        android:layout_height="56dp"
         android:layout_marginBottom="76dp"
-        android:text="Button"
+        android:text="UPDATE"
+        app:backgroundTint="@color/madGreen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editsurl" />
+        app:layout_constraintTop_toBottomOf="@+id/editsurl"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="133dp"
+        android:layout_height="277dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sharebookedt" />
 </androidx.constraintlayout.widget.ConstraintLayout>
