@@ -23,6 +23,7 @@ import com.example.madcode.Events.my_event_list;
 import com.example.madcode.MainActivity;
 import com.example.madcode.R;
 import com.example.madcode.Sharebook.Share_menu;
+import com.example.madcode.Sharebook.Share_menu_Cus;
 import com.example.madcode.User.user_profile;
 import com.example.madcode.login;
 import com.example.madcode.nav_activity;
@@ -77,7 +78,7 @@ public class CusRequestBook extends nav_activity {
                         break;
 
                     case R.id.mybooks:
-                        // startActivity(new Intent(Eventmain.this, user_profile.class));
+                         startActivity(new Intent(CusRequestBook.this, Share_menu.class));
                         break;
 
                     case R.id.My_Requests:
@@ -120,7 +121,7 @@ public class CusRequestBook extends nav_activity {
                         return true;
 
                     case R.id.navigation_book:
-                        startActivity(new Intent(getApplicationContext(), Share_menu.class));
+                        startActivity(new Intent(getApplicationContext(), Share_menu_Cus.class));
                         overridePendingTransition(0,0);
                         return true;
 
