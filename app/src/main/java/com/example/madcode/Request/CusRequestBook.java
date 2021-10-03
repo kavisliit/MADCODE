@@ -207,6 +207,7 @@ public class CusRequestBook extends nav_activity {
                 in.putExtra("book_publisher",list.get(position).getBook_publisher());
                 in.putExtra("book_description",list.get(position).getBook_description());
                 in.putExtra("ReqUrl",list.get(position).getReqUrl());
+                in.putExtra("reqid",list.get(position).getRequserid());
                 startActivity(in);
 
             }
