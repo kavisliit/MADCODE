@@ -92,9 +92,13 @@
 
     <ScrollView
         android:id="@+id/Infoview"
-        android:layout_width="326dp"
-        android:layout_height="415dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/reqcontactview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3">
@@ -110,20 +114,19 @@
             tools:ignore="SpeakableTextPresentCheck" />
     </ScrollView>
 
-    <TextView
+    <Button
         android:id="@+id/reqcontactview"
-        android:layout_width="321dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="331dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center|center_horizontal"
-        android:text="TextView"
-        android:textColor="@color/madGreen"
-        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:backgroundTint="@color/madGreen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Infoview"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
