@@ -4,13 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
-
+import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.madcode.Article.Model.ArticleModel;
 import com.example.madcode.Events.my_event_list;
 import com.example.madcode.MainActivity;
@@ -46,7 +47,7 @@ public class My_Article extends nav_activity {
 
     FirebaseUser fireUser;
     String CurrentUserId;
-
+    EditText searchText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +99,25 @@ public class My_Article extends nav_activity {
         });
 
 
+        //Search text call
+        searchText = findViewById(R.id.article_search_bar);
+        searchText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+
 
         setOnClickListner();
         rec = findViewById(R.id.recyclerView1);
@@ -135,6 +155,16 @@ public class My_Article extends nav_activity {
 
     }
 
+    //Create filter method in My_Article
+    private void filter(String text){
+        ArrayList<ArticleModel> filteredList = new ArrayList<>();
+        for(ArticleModel item:list){
+            if(item.getHead_line().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(item);
+            }
+        }
+        adapter.filterList(filteredList);
+    }
 
 
     private void setOnClickListner() {

@@ -2,9 +2,12 @@ package com.example.madcode.Article;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -45,6 +48,7 @@ public class ArticleMainPageCustomer extends nav_activity {
     String ArticleId;
     private Article_adapter_customer.RecyclerViewClickListner listner;
 
+    EditText searchTextCustomer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,6 +139,26 @@ public class ArticleMainPageCustomer extends nav_activity {
             }
         });
 
+        //Search text call in customer
+        searchTextCustomer = findViewById(R.id.article_search_bar_customer);
+        searchTextCustomer.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+
+
 
         //article click
         setOnClickListner();
@@ -166,6 +190,17 @@ public class ArticleMainPageCustomer extends nav_activity {
             }
         });
 
+    }
+
+    //Create filter method in ArticleMainPageCustomer
+    private void filter(String text){
+        ArrayList<ArticleModel> filteredList = new ArrayList<>();
+        for(ArticleModel item:list){
+            if(item.getHead_line().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(item);
+            }
+        }
+        adapter.filterList(filteredList);
     }
 
 

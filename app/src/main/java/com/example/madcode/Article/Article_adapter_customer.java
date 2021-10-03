@@ -53,6 +53,11 @@ public class Article_adapter_customer extends RecyclerView.Adapter<Article_adapt
     public int getItemCount() {
         return list.size();
     }
+    //create filter method in Adapter for search
+    public void filterList(ArrayList<ArticleModel> filteredList){
+        list = filteredList;
+        notifyDataSetChanged();
+    }
     public static class MyViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
 
         TextView Head_line,Small_description,Sub_topic,Description;

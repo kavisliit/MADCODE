@@ -5,13 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
-
+import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.madcode.Article.My_Article;
 import com.example.madcode.Events.my_event_list;
 import com.example.madcode.MainActivity;
@@ -44,6 +45,7 @@ public class RequestBook extends nav_activity {
     FirebaseUser reqfire;
     String requserid;
 
+    EditText searchTextRequest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +97,25 @@ public class RequestBook extends nav_activity {
             }
         });
 
+
+        searchTextRequest = findViewById(R.id.search_req_book);
+        searchTextRequest.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+
         setOnClickListner();
         rec = findViewById(R.id.recyclerViewR);
         database = FirebaseDatabase.getInstance().getReference("reqmodal");
@@ -125,6 +146,16 @@ public class RequestBook extends nav_activity {
             }
         });
 
+    }
+
+    private void filter(String text){
+        ArrayList<reqmodal> filteredList = new ArrayList<>();
+        for(reqmodal item:list){
+            if(item.getBook_name().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(item);
+            }
+        }
+        adapter.filterList(filteredList);
     }
 
     private void setOnClickListner() {
