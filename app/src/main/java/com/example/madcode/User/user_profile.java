@@ -2,6 +2,8 @@ package com.example.madcode.User;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -9,12 +11,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bumptech.glide.Glide;
+import com.example.madcode.Article.My_Article;
 import com.example.madcode.Events.Add_Event;
 import com.example.madcode.Events.Models.User;
+import com.example.madcode.Events.my_event_list;
+import com.example.madcode.MainActivity;
 import com.example.madcode.R;
+import com.example.madcode.Request.RequestBook;
+import com.example.madcode.Sharebook.Share_menu;
+import com.example.madcode.login;
+import com.example.madcode.nav_activity;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +37,7 @@ import org.jetbrains.annotations.NotNull;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class user_profile extends AppCompatActivity {
+public class user_profile extends nav_activity {
     Button logout,samp;
     TextView name,email,dob,phone,greet;
     FirebaseUser user;
@@ -39,7 +49,54 @@ public class user_profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile);
+       // setContentView(R.layout.activity_user_profile);
+
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View v = inflater.inflate(R.layout.activity_user_profile,null,false);
+        cl.addView(v,0);
+
+        DrawerLayout dl = findViewById(R.id.drawer);
+        NavigationView nav = findViewById(R.id.navwiew);
+        nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull @org.jetbrains.annotations.NotNull MenuItem item) {
+                switch (item.getItemId()){
+
+                    case R.id.home:
+                        startActivity(new Intent(user_profile.this, MainActivity.class));
+                        break;
+
+                    case R.id.profile:
+                        startActivity(new Intent(user_profile.this, user_profile.class));
+                        break;
+
+                    case R.id.mybooks:
+                        startActivity(new Intent(user_profile.this, Share_menu.class));
+                        break;
+
+                    case R.id.My_Requests:
+                        startActivity(new Intent(user_profile.this, RequestBook.class));
+                        break;
+
+                    case R.id.My_Articles:
+                        startActivity(new Intent(user_profile.this, My_Article.class));
+                        break;
+
+                    case R.id.My_Events:
+                        startActivity(new Intent(user_profile.this, my_event_list.class));
+                        break;
+
+                    case R.id.logout_2:
+                        FirebaseAuth.getInstance().signOut();
+                        startActivity(new Intent(user_profile.this, login.class));
+                        break;
+
+
+                }
+                return false;
+            }
+        });
+
 
 
 
