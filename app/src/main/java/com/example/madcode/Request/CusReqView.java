@@ -1,6 +1,7 @@
 package com.example.madcode.Request;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -11,7 +12,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.madcode.Events.Models.User;
 import com.example.madcode.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class CusReqView extends AppCompatActivity {
@@ -22,6 +29,12 @@ public class CusReqView extends AppCompatActivity {
     String txt2 = "not set";
     String txt3 = "not set";
     String txt4 = "not set";
+    String reqid= "";
+    String reqphone="";
+
+    TextView reqcontact;
+
+    DatabaseReference db;
 
 
     public void ViewToCustList(View view){
@@ -43,6 +56,7 @@ public class CusReqView extends AppCompatActivity {
         TextView book_publisher = findViewById(R.id.reqpublishreview);
         TextView book_description = findViewById(R.id.infoviewmulti);
         ImageView ReqUrl = findViewById(R.id.reqviewimg);
+        reqcontact = findViewById(R.id.reqcontactview);
 
 
 
@@ -56,6 +70,8 @@ public class CusReqView extends AppCompatActivity {
             txt2 = extras.getString("book_publisher");
             txt3 = extras.getString("book_description");
             txt4 = extras.getString("ReqUrl");
+            reqid = extras.getString("reqid");
+
         }
 
         book_name.setText(txt);
@@ -63,6 +79,27 @@ public class CusReqView extends AppCompatActivity {
         book_publisher.setText(txt2);
         book_description.setText(txt3);
         Glide.with(this).load(txt4).into(ReqUrl);
+        db = FirebaseDatabase.getInstance().getReference("Users");
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dn:snapshot.getChildren()){
+                String id=dn.getKey();
+                User ob= dn.getValue(User.class);
+
+                if(reqid.equals(id)){
+                    reqphone=ob.phone;
+                    reqcontact.setText("Contact : " + reqphone);
+                }
+                }
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
     }
