@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -44,6 +45,7 @@ public class CusReqView extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +60,15 @@ public class CusReqView extends AppCompatActivity {
         ImageView ReqUrl = findViewById(R.id.reqviewimg);
         reqcontact = findViewById(R.id.reqcontactview);
 
+        reqcontact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:"+reqphone));
+                startActivity(intent);
 
+            }
+        });
 
 //display request view page
         Bundle extras = getIntent().getExtras();
@@ -90,7 +100,10 @@ public class CusReqView extends AppCompatActivity {
                 if(reqid.equals(id)){
                     reqphone=ob.phone;
                     reqcontact.setText("Contact : " + reqphone);
+
+
                 }
+
                 }
             }
 
