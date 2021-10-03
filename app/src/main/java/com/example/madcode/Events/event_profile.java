@@ -3,6 +3,7 @@ package com.example.madcode.Events;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -43,11 +44,12 @@ public class event_profile extends AppCompatActivity {
     Map<String,String > mapo = new HashMap<>();
     int in = 0,count = 0;
     String newid;
+    String eventname = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_profile);
-        String date,time,type,max = null,uri = null,cid = null;
+        String date = null,time = null ,type = null,max = null,uri = null,cid = null;
         String eid;
         mem = findViewById(R.id.evenet_pic);
         tw1 = findViewById(R.id.info1);
@@ -60,7 +62,7 @@ public class event_profile extends AppCompatActivity {
         join = findViewById(R.id.join_btn_ev);
         img = findViewById(R.id.members_btn_event);
         com = findViewById(R.id.event_profile_comment_btn);
-        String eventname = null;
+
         String curid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         db = FirebaseDatabase.getInstance().getReference("Users");
@@ -185,7 +187,9 @@ public class event_profile extends AppCompatActivity {
         });
 
         int nmax = Integer.parseInt(max);
-       join.setOnClickListener(new View.OnClickListener() {
+        String finalType = type;
+        String finalTime = time;
+        join.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
 
@@ -256,6 +260,18 @@ public class event_profile extends AppCompatActivity {
                                join.setBackgroundColor(Color.RED);
                                join.setText("Leave");
                                Toasty.success(event_profile.this, "Joined successfully", Toast.LENGTH_SHORT).show();
+                               Intent intent =  new Intent(Intent.ACTION_INSERT);
+                               intent.setData(CalendarContract.Events.CONTENT_URI);
+                               intent.putExtra(CalendarContract.Events.TITLE,eventname);
+                               intent.putExtra(CalendarContract.Events.EVENT_LOCATION, finalType);
+                               intent.putExtra(CalendarContract.Events.EVENT_TIMEZONE, finalTime);
+
+                               if(intent.resolveActivity(getPackageManager()) != null){
+                                   startActivity(intent);
+                               }
+                               else{
+                                   Toast.makeText(event_profile.this, "there is no app that can support this action", Toast.LENGTH_SHORT).show();
+                               }
                            }
 
                        }

@@ -56,6 +56,11 @@ public class Event_adapter extends RecyclerView.Adapter<Event_adapter.MyViewHold
         return list.size();
     }
 
+    public void filterlist(ArrayList<Event> ob){
+        list = ob;
+        notifyDataSetChanged();
+    }
+
     public static class MyViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
 
         TextView name,venue,Date,Time,max;

@@ -2,9 +2,12 @@ package com.example.madcode;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -45,6 +48,7 @@ public class  Eventmain extends nav_activity{
     Event_adapter adapter;
     ArrayList<Event> list;
     ArrayList<String> getid = new ArrayList<>();
+    EditText search;
     String id;
     private Event_adapter.RecyclerViewClickListner listner;
 
@@ -55,7 +59,7 @@ public class  Eventmain extends nav_activity{
         LayoutInflater inflater = LayoutInflater.from(this);
         View v = inflater.inflate(R.layout.activity_eventmain,null,false);
         cl.addView(v,0);
-
+        search = findViewById(R.id.searchevent);
        DrawerLayout dl = findViewById(R.id.drawer);
        NavigationView nav = findViewById(R.id.navwiew);
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -166,6 +170,36 @@ public class  Eventmain extends nav_activity{
             }
         });
 
+
+
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+
+            }
+        });
+
+
+    }
+    private void filter(String text){
+        ArrayList<Event> filterlist = new ArrayList<>();
+        for(Event item:list){
+            if(item.getName().toLowerCase().contains(text.toLowerCase())){
+                filterlist.add(item);
+            }
+        }
+        adapter.filterlist(filterlist);
     }
 
 
