@@ -2,7 +2,10 @@ package com.example.madcode.Article;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,7 +39,7 @@ public class My_Article extends AppCompatActivity {
 
     FirebaseUser fireUser;
     String CurrentUserId;
-
+    EditText searchText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +47,25 @@ public class My_Article extends AppCompatActivity {
         //LayoutInflater inflater = LayoutInflater.from(this);
         //View v = inflater.inflate(R.layout.activity_my_article,null,false);
         //cl.addView(v,0);
+
+        //Search text call
+        searchText = findViewById(R.id.article_search_bar);
+        searchText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
 
 
         setOnClickListner();
@@ -82,6 +104,16 @@ public class My_Article extends AppCompatActivity {
 
     }
 
+    //Create filter method in My_Article
+    private void filter(String text){
+        ArrayList<ArticleModel> filteredList = new ArrayList<>();
+        for(ArticleModel item:list){
+            if(item.getHead_line().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(item);
+            }
+        }
+        adapter.filterList(filteredList);
+    }
 
 
     private void setOnClickListner() {

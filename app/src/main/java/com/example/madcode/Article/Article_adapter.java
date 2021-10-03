@@ -54,6 +54,11 @@ public class Article_adapter extends RecyclerView.Adapter<Article_adapter.MyView
     public int getItemCount() {
         return list.size();
     }
+    //create filter method in Adapter for search
+    public void filterList(ArrayList<ArticleModel> filteredList){
+        list = filteredList;
+        notifyDataSetChanged();
+    }
     public static class MyViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
         TextView Head_line,Small_description,Sub_topic,Description;
         ImageView propic;
@@ -81,4 +86,6 @@ public class Article_adapter extends RecyclerView.Adapter<Article_adapter.MyView
         void onClick(View v, int position);
 
     }
+
+
 }
