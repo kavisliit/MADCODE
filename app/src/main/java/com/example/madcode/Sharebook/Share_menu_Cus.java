@@ -53,9 +53,9 @@ public class Share_menu_Cus extends AppCompatActivity {
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @com.google.firebase.database.annotations.NotNull DataSnapshot snapshot) {
-                for(DataSnapshot dn : snapshot.getChildren()){
-                    ShareBookId = dn.getKey();
-                    Modelshare ev = dn.getValue(Modelshare.class);
+                for(DataSnapshot sb : snapshot.getChildren()){
+                    ShareBookId = sb.getKey();
+                    Modelshare ev = sb.getValue(Modelshare.class);
                     list.add(ev);
                     getShareBookId.add(ShareBookId);
                 }

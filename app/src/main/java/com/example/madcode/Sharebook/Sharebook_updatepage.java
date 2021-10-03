@@ -30,11 +30,11 @@ public class Sharebook_updatepage extends AppCompatActivity {
 
    // ImageButton buttonEdit,buttonDelete;
     String ShareBookId ;
-    String sname = "not set";
-    String sname2 = "not set";
-    String sname3 = "not set";
-    String sname4 = "not set";
-    String sname5 = "not set";
+    String sbname = "not set";
+    String sbname2 = "not set";
+    String sbname3 = "not set";
+    String sbname4 = "not set";
+    String sbname5 = "not set";
     Task<Void> db;
 
     @Override
@@ -54,18 +54,18 @@ public class Sharebook_updatepage extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             ShareBookId = extras.getString("ShareBookId");
-            sname = extras.getString("sbookname");
-            sname2 = extras.getString("sbookcategory");
-            sname3 = extras.getString("sbookauthor");
-            sname4 = extras.getString("sbookdes");
-            sname5 = extras.getString("surl");
+            sbname = extras.getString("sbookname");
+            sbname2 = extras.getString("sbookcategory");
+            sbname3 = extras.getString("sbookauthor");
+            sbname4 = extras.getString("sbookdes");
+            sbname5 = extras.getString("surl");
         }
 
-        sbookname.setText(sname);
-        sbookcategory.setText(sname2);
-        sbookauthor.setText(sname3);
-        sbookdes.setText(sname4);
-        surl.setText(sname5);
+        sbookname.setText(sbname);
+        sbookcategory.setText(sbname2);
+        sbookauthor.setText(sbname3);
+        sbookdes.setText(sbname4);
+        surl.setText(sbname5);
 
 
         //complete button
@@ -74,11 +74,11 @@ public class Sharebook_updatepage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                sname  = sbookname.getText().toString();
-                sname2  = sbookcategory.getText().toString();
-                sname3  = sbookauthor.getText().toString();
-                sname4  = sbookdes.getText().toString();
-                sname5  = surl.getText().toString();
+                sbname  = sbookname.getText().toString();
+                sbname2  = sbookcategory.getText().toString();
+                sbname3  = sbookauthor.getText().toString();
+                sbname4  = sbookdes.getText().toString();
+                sbname5  = surl.getText().toString();
 
                 if(TextUtils.isEmpty(sbookname.getText().toString()))
                 {
@@ -107,11 +107,11 @@ public class Sharebook_updatepage extends AppCompatActivity {
                 }
 
                 Map<String,Object> map = new HashMap<>();
-                map.put("sbookname",sname);
-                map.put("sbookcategory",sname2);
-                map.put("sbookauthor",sname3);
-                map.put("sbookdes",sname4);
-                map.put("surl",sname5);
+                map.put("sbookname",sbname);
+                map.put("sbookcategory",sbname2);
+                map.put("sbookauthor",sbname3);
+                map.put("sbookdes",sbname4);
+                map.put("surl",sbname5);
 
 
                 db = FirebaseDatabase.getInstance().getReference("sharebook").child(ShareBookId)
