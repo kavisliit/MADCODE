@@ -134,6 +134,7 @@
     <string name="Articles_title">Articles</string>
     <string name="title_Request">Requests</string>
     <string name="title_eve">Events</string>
+    <string name="serach_event_txt">Enter keyword</string>
 
 
 </resources>

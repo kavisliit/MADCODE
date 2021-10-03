@@ -26,20 +26,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView1"
-        android:layout_width="387dp"
-        android:layout_height="532dp"
+        android:layout_width="355dp"
+        android:layout_height="469dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
-        android:layout_marginTop="2dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/event_title"
-        app:layout_constraintVertical_bias="0.064" />
+        app:layout_constraintTop_toBottomOf="@+id/searchevent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/f_btn1"
@@ -82,6 +77,17 @@
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
         android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/event_title" />
+
+    <EditText
+        android:id="@+id/searchevent"
+        android:layout_width="294dp"
+        android:layout_height="46dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/forget"
+        android:hint="@string/serach_event_txt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/event_title" />

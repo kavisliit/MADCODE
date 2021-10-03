@@ -13,8 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.madcode.Events.Add_Event;
-import com.example.madcode.Events.my_event_list;
-import com.example.madcode.Events.user_events;
 import com.example.madcode.Events.Models.User;
 import com.example.madcode.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -43,19 +41,12 @@ public class user_profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-        logout = findViewById(R.id.logout);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               // FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(user_profile.this, my_event_list.class));
-            }
-        });
+
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         dbref = FirebaseDatabase.getInstance().getReference("Users");
         userID = user.getUid();
-        samp = findViewById(R.id.sample);
+
         im = findViewById(R.id.circleImageView_usre);
         greet = findViewById(R.id.greeting);
 
@@ -100,7 +91,5 @@ public class user_profile extends AppCompatActivity {
         startActivity(new Intent(user_profile.this, Add_Event.class));
     }
 
-    public void sample(View view){
-        startActivity(new Intent(user_profile.this, user_events.class));
-    }
+
 }
