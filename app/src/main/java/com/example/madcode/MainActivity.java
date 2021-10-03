@@ -146,7 +146,7 @@ public class MainActivity extends nav_activity {
 
 
         ArrayList<main_model> bookuri = new ArrayList<>();
-        db = FirebaseDatabase.getInstance().getReference("Sharebook_create");
+        db = FirebaseDatabase.getInstance().getReference("sharebook");
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
