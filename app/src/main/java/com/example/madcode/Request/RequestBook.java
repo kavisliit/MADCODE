@@ -3,7 +3,10 @@ package com.example.madcode.Request;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,10 +37,30 @@ public class RequestBook extends AppCompatActivity {
     FirebaseUser reqfire;
     String requserid;
 
+    EditText searchTextRequest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_book);
+
+
+        searchTextRequest = findViewById(R.id.search_req_book);
+        searchTextRequest.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
 
         setOnClickListner();
         rec = findViewById(R.id.recyclerViewR);
@@ -69,6 +92,16 @@ public class RequestBook extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void filter(String text){
+        ArrayList<reqmodal> filteredList = new ArrayList<>();
+        for(reqmodal item:list){
+            if(item.getBook_name().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(item);
+            }
+        }
+        adapter.filterList(filteredList);
     }
 
     private void setOnClickListner() {

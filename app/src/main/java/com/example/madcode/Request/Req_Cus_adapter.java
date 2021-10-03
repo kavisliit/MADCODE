@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.madcode.Article.Model.ArticleModel;
 import com.example.madcode.R;
 import com.google.firebase.database.annotations.NotNull;
 
@@ -49,6 +50,10 @@ public class Req_Cus_adapter extends RecyclerView.Adapter<Req_Cus_adapter.MyView
     @Override
     public int getItemCount() {
         return list.size();
+    }
+    public void filterList(ArrayList<reqmodal> filteredList){
+        list = filteredList;
+        notifyDataSetChanged();
     }
     public static class MyViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
         TextView book_name,book_authur,book_publisher, book_description;
