@@ -2,9 +2,12 @@ package com.example.madcode.Article;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -18,7 +21,8 @@ import com.example.madcode.MainActivity;
 import com.example.madcode.R;
 import com.example.madcode.Request.CusRequestBook;
 import com.example.madcode.Request.RequestBook;
-import com.example.madcode.Sharebook.share_menu;
+import com.example.madcode.Sharebook.Share_menu;
+import com.example.madcode.Sharebook.Share_menu_Cus;
 import com.example.madcode.User.user_profile;
 import com.example.madcode.login;
 import com.example.madcode.nav_activity;
@@ -44,6 +48,7 @@ public class ArticleMainPageCustomer extends nav_activity {
     String ArticleId;
     private Article_adapter_customer.RecyclerViewClickListner listner;
 
+    EditText searchTextCustomer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +74,7 @@ public class ArticleMainPageCustomer extends nav_activity {
                         break;
 
                     case R.id.mybooks:
-                        // startActivity(new Intent(Eventmain.this, user_profile.class));
+                        startActivity(new Intent(ArticleMainPageCustomer.this, Share_menu.class));
                         break;
 
                     case R.id.My_Requests:
@@ -116,7 +121,7 @@ public class ArticleMainPageCustomer extends nav_activity {
                         return true;
 
                     case R.id.navigation_book:
-                        startActivity(new Intent(getApplicationContext(), share_menu.class));
+                        startActivity(new Intent(getApplicationContext(), Share_menu_Cus.class));
                         overridePendingTransition(0,0);
                         return true;
 
@@ -133,6 +138,26 @@ public class ArticleMainPageCustomer extends nav_activity {
                 return false;
             }
         });
+
+        //Search text call in customer
+        searchTextCustomer = findViewById(R.id.article_search_bar_customer);
+        searchTextCustomer.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+
 
 
         //article click
@@ -165,6 +190,17 @@ public class ArticleMainPageCustomer extends nav_activity {
             }
         });
 
+    }
+
+    //Create filter method in ArticleMainPageCustomer
+    private void filter(String text){
+        ArrayList<ArticleModel> filteredList = new ArrayList<>();
+        for(ArticleModel item:list){
+            if(item.getHead_line().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(item);
+            }
+        }
+        adapter.filterList(filteredList);
     }
 
 

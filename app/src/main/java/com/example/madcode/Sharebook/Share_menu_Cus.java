@@ -1,5 +1,6 @@
 package com.example.madcode.Sharebook;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,72 +21,75 @@ import com.example.madcode.R;
 import com.example.madcode.Request.CusRequestBook;
 import com.example.madcode.Request.RequestBook;
 import com.example.madcode.User.user_profile;
+import com.example.madcode.login;
 import com.example.madcode.nav_activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.jetbrains.annotations.NotNull;
+import com.google.firebase.database.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class share_menu extends nav_activity{
+public class Share_menu_Cus extends nav_activity {
 
-    RecyclerView recyclerView;
-    sharebook sharebook;
+
     FloatingActionButton fb;
+    RecyclerView recyclerView;
     DatabaseReference database;
-    com.example.madcode.Sharebook.shareadapter shareadapter;
+    Shareadapter_Cus shareadapter_cus;
     ArrayList<Modelshare> list;
+    ArrayList<String> getShareBookId = new ArrayList<>();
+    String ShareBookId;
+    private Shareadapter_Cus.RecyclerViewClickListner listner;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_share_menu);
+       // setContentView(R.layout.activity_share_menu_cus);
         LayoutInflater inflater = LayoutInflater.from(this);
-        View v = inflater.inflate(R.layout.activity_share_menu,null,false);
+        View v = inflater.inflate(R.layout.activity_share_menu_cus,null,false);
         cl.addView(v,0);
-
-
         DrawerLayout dl = findViewById(R.id.drawer);
         NavigationView nav = findViewById(R.id.navwiew);
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
+            public boolean onNavigationItemSelected(@NonNull @org.jetbrains.annotations.NotNull MenuItem item) {
                 switch (item.getItemId()){
 
                     case R.id.home:
-                        startActivity(new Intent(share_menu.this, MainActivity.class));
+                        startActivity(new Intent(Share_menu_Cus.this, MainActivity.class));
                         break;
 
                     case R.id.profile:
-                        startActivity(new Intent(share_menu.this, user_profile.class));
+                        startActivity(new Intent(Share_menu_Cus.this, user_profile.class));
                         break;
 
                     case R.id.mybooks:
-                        // startActivity(new Intent(Eventmain.this, user_profile.class));
+                         startActivity(new Intent(Share_menu_Cus.this, Share_menu.class));
                         break;
 
                     case R.id.My_Requests:
-                        startActivity(new Intent(share_menu.this, RequestBook.class));
+                        startActivity(new Intent(Share_menu_Cus.this, RequestBook.class));
                         break;
 
                     case R.id.My_Articles:
-                        startActivity(new Intent(share_menu.this, My_Article.class));
+                        startActivity(new Intent(Share_menu_Cus.this, My_Article.class));
                         break;
 
                     case R.id.My_Events:
-                        startActivity(new Intent(share_menu.this, my_event_list.class));
+                        startActivity(new Intent(Share_menu_Cus.this, my_event_list.class));
                         break;
 
                     case R.id.logout_2:
-                        //startActivity(new Intent(Eventmain.this, RequestBook.class));
+                        FirebaseAuth.getInstance().signOut();
+                        startActivity(new Intent(Share_menu_Cus.this, login.class));
                         break;
 
 
@@ -105,6 +109,7 @@ public class share_menu extends nav_activity{
                     case R.id.navigation_event:
                         startActivity(new Intent(getApplicationContext(), Eventmain.class));
                         overridePendingTransition(0,0);
+
                         return true;
 
                     case R.id.navigation_home:
@@ -132,41 +137,68 @@ public class share_menu extends nav_activity{
         });
 
 
-        recyclerView = findViewById(R.id.share_menu);
+
+
+
+
+        setOnClickListner();
+        recyclerView = findViewById(R.id.allshareview);
+
         database = FirebaseDatabase.getInstance().getReference("sharebook");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
-        shareadapter = new shareadapter(this,list);
-        recyclerView.setAdapter(shareadapter);
+        shareadapter_cus = new Shareadapter_Cus(this,list,listner);
+        recyclerView.setAdapter(shareadapter_cus);
 
         database.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-
-                    Modelshare modelshare = dataSnapshot.getValue(Modelshare.class);
-                    list.add(modelshare);
-
+            public void onDataChange(@NonNull @com.google.firebase.database.annotations.NotNull DataSnapshot snapshot) {
+                for(DataSnapshot dn : snapshot.getChildren()){
+                    ShareBookId = dn.getKey();
+                    Modelshare ev = dn.getValue(Modelshare.class);
+                    list.add(ev);
+                    getShareBookId.add(ShareBookId);
                 }
-
-                shareadapter.notifyDataSetChanged();
+                shareadapter_cus.notifyDataSetChanged();
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
 
             }
         });
 
+    }
 
-        fb = (FloatingActionButton)findViewById(R.id.addshare_book);
-        fb.setOnClickListener(new View.OnClickListener(){
+
+
+    private void setOnClickListner() {
+        listner = new Shareadapter_Cus.RecyclerViewClickListner() {
             @Override
-            public void onClick(View view){
-                startActivity(new Intent(getApplication(), com.example.madcode.Sharebook.sharebook.class));
+            public void onClick(View v, int position) {
+                Intent in = new Intent(getApplicationContext(), Sharebook_viewpage_cus.class);
+
+                in.putExtra("ShareBookId",getShareBookId.get(position));
+
+                in.putExtra("sbookname",list.get(position).getSbookname());
+                in.putExtra("sbookcategory",list.get(position).getSbookcategory());
+                in.putExtra("sbookauthor",list.get(position).getSbookauthor());
+                in.putExtra("sbookdes",list.get(position).getSbookdes());
+                in.putExtra("surl",list.get(position).getSurl());
+
+                startActivity(in);
             }
-        });
-}
+        };
+
+    }
+
+
+
+    public void sharebooktocreate(View view){
+        Intent intent = new Intent(this, Sharebook_create.class);
+        startActivity(intent);
+    }
+
 }

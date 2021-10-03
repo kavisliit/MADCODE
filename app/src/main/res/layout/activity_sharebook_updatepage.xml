@@ -14,6 +14,89 @@
         android:layout_marginLeft="-165dp"
         android:layout_marginTop="-40dp"
         android:background="@drawable/back_btn"
-        tools:ignore="MissingConstraints,SpeakableTextPresentCheck"
-        android:contentDescription="TODO" />
+        android:contentDescription="TODO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/editsbookname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editsbookauthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editsbookname" />
+
+    <EditText
+        android:id="@+id/editsbookcategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editsbookauthor" />
+
+    <EditText
+        android:id="@+id/editsbookdes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="49dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/editsurl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editsurl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="206dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/updatesbook"
+        android:layout_width="143dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="76dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editsurl" />
 </androidx.constraintlayout.widget.ConstraintLayout>

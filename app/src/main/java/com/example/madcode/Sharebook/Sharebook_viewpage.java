@@ -16,9 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.madcode.R;
-import com.example.madcode.Request.ReqEdit;
-import com.example.madcode.Request.ReqView;
-import com.example.madcode.Request.RequestBook;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -28,7 +25,7 @@ public class Sharebook_viewpage extends AppCompatActivity {
 
     //ImageButton btnBack;
     ImageButton buttonEdit,buttonDelete;
-    String SID ;
+    String ShareBookId ;
     String sname = "not set";
     String sname2 = "not set";
     String sname3 = "not set";
@@ -43,15 +40,15 @@ public class Sharebook_viewpage extends AppCompatActivity {
         //btnBack = (ImageButton) findViewById(R.id.btnBack);
 
 
-        buttonEdit = (ImageButton) findViewById(R.id.editicon);
-        buttonDelete = (ImageButton) findViewById(R.id.deleteicon);
+        buttonEdit = (ImageButton) findViewById(R.id.editshare);
+        buttonDelete = (ImageButton) findViewById(R.id.deleteshare);
 
 
 
         TextView sbookname = findViewById(R.id.sbooktext1);
         TextView sbookcategory = findViewById(R.id.sbooktext2);
         TextView sbookauthor = findViewById(R.id.sbooktext3);
-        TextView sbookdescription = findViewById(R.id.sbooktext4);
+        TextView sbookdes = findViewById(R.id.sbooktext4);
         ImageView surl = findViewById(R.id.sbookimg);
 
         //pass the value to edit page
@@ -60,11 +57,11 @@ public class Sharebook_viewpage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Sharebook_viewpage.this, Sharebook_updatepage.class);
 
-                intent.putExtra("SID",SID);
+                intent.putExtra("ShareBookId",ShareBookId);
                 //pass the data to view page (display)
                 intent.putExtra("sbookname",sname);
-                intent.putExtra("sbookauthor",sname3);
                 intent.putExtra("sbookcategory",sname2);
+                intent.putExtra("sbookauthor",sname3);
                 intent.putExtra("sbookdes",sname4);
                 intent.putExtra("surl",sname5);
 
@@ -83,11 +80,11 @@ public class Sharebook_viewpage extends AppCompatActivity {
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        FirebaseDatabase.getInstance().getReference("Modelshare").child(SID).removeValue(new DatabaseReference.CompletionListener() {
+                        FirebaseDatabase.getInstance().getReference("sharebook").child(ShareBookId).removeValue(new DatabaseReference.CompletionListener() {
                             @Override
                             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
                                 Toast.makeText(Sharebook_viewpage.this, "deleted succesfully", Toast.LENGTH_SHORT).show();
-                                Intent in = new Intent(Sharebook_viewpage.this, sharebook.class);
+                                Intent in = new Intent(Sharebook_viewpage.this, Share_menu.class);
                                 startActivity(in);
                             }
                         });
@@ -107,25 +104,25 @@ public class Sharebook_viewpage extends AppCompatActivity {
 //display request view page
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            SID = extras.getString("SID");
+            ShareBookId = extras.getString("ShareBookId");
             sname = extras.getString("sbookname");
             sname2 = extras.getString("sbookcategory");
             sname3 = extras.getString("sbookauthor");
-            sname4 = extras.getString("sbookdescription");
+            sname4 = extras.getString("sbookdes");
             sname5 = extras.getString("surl");
         }
 
         sbookname.setText(sname);
         sbookcategory.setText(sname2);
         sbookauthor.setText(sname3);
-        sbookdescription.setText(sname4);
+        sbookdes.setText(sname4);
         Glide.with(this).load(sname5).into(surl);
     }
 
 
 
         public void SharebooktoSharemenu(View view){
-            Intent intent = new Intent(this, share_menu.class);
+            Intent intent = new Intent(this, Share_menu.class);
             startActivity(intent);
         }
     }

@@ -6,19 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".Article.My_Article">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView1"
-        android:layout_width="378dp"
-        android:layout_height="661dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <EditText
+        android:id="@+id/article_search_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/forget"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        android:ems="10"
+        android:hint="Search..."
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/roboto_medium"
+        android:paddingBottom="5dp"
+        android:text="@string/My_Article"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="563dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/article_search_bar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fadd"
@@ -40,22 +84,9 @@
         tools:ignore="SpeakableTextPresentCheck,VectorDrawableCompat,ImageContrastCheck"
         android:contentDescription="@string/todo" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/roboto_medium"
-        android:paddingBottom="5dp"
-        android:text="@string/My_Article"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <View
         android:id="@+id/divider2"
-        android:layout_width="392dp"
+        android:layout_width="0dp"
         android:layout_height="2dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"

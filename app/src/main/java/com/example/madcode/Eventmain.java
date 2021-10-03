@@ -2,9 +2,12 @@ package com.example.madcode;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -20,7 +23,8 @@ import com.example.madcode.Events.event_profile;
 import com.example.madcode.Events.my_event_list;
 import com.example.madcode.Request.CusRequestBook;
 import com.example.madcode.Request.RequestBook;
-import com.example.madcode.Sharebook.share_menu;
+import com.example.madcode.Sharebook.Share_menu;
+import com.example.madcode.Sharebook.Share_menu_Cus;
 import com.example.madcode.User.user_profile;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -45,6 +49,7 @@ public class  Eventmain extends nav_activity{
     Event_adapter adapter;
     ArrayList<Event> list;
     ArrayList<String> getid = new ArrayList<>();
+    EditText search;
     String id;
     private Event_adapter.RecyclerViewClickListner listner;
 
@@ -55,7 +60,7 @@ public class  Eventmain extends nav_activity{
         LayoutInflater inflater = LayoutInflater.from(this);
         View v = inflater.inflate(R.layout.activity_eventmain,null,false);
         cl.addView(v,0);
-
+        search = findViewById(R.id.searchevent);
        DrawerLayout dl = findViewById(R.id.drawer);
        NavigationView nav = findViewById(R.id.navwiew);
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -72,7 +77,7 @@ public class  Eventmain extends nav_activity{
                         break;
 
                     case R.id.mybooks:
-                       // startActivity(new Intent(Eventmain.this, user_profile.class));
+                        startActivity(new Intent(Eventmain.this, Share_menu.class));
                         break;
 
                     case R.id.My_Requests:
@@ -88,7 +93,8 @@ public class  Eventmain extends nav_activity{
                         break;
 
                     case R.id.logout_2:
-                        //startActivity(new Intent(Eventmain.this, RequestBook.class));
+                        startActivity(new Intent(getApplicationContext(), CusRequestBook.class));
+                        overridePendingTransition(0,0);
                         break;
 
 
@@ -115,7 +121,7 @@ public class  Eventmain extends nav_activity{
                         return true;
 
                     case R.id.navigation_book:
-                        startActivity(new Intent(getApplicationContext(), share_menu.class));
+                        startActivity(new Intent(getApplicationContext(), Share_menu_Cus.class));
                         overridePendingTransition(0,0);
                         return true;
 
@@ -166,6 +172,36 @@ public class  Eventmain extends nav_activity{
             }
         });
 
+
+
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+
+            }
+        });
+
+
+    }
+    private void filter(String text){
+        ArrayList<Event> filterlist = new ArrayList<>();
+        for(Event item:list){
+            if(item.getName().toLowerCase().contains(text.toLowerCase())){
+                filterlist.add(item);
+            }
+        }
+        adapter.filterlist(filterlist);
     }
 
 

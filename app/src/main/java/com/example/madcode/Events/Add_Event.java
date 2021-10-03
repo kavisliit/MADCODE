@@ -69,7 +69,7 @@ public class Add_Event extends nav_activity {
         time = findViewById(R.id.ptext6);
         venue = findViewById(R.id.ptext3);
         max_mem = findViewById(R.id.mem_ex);
-        back = findViewById(R.id.back_btn);
+        //back = findViewById(R.id.back_btn);
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
@@ -92,14 +92,7 @@ public class Add_Event extends nav_activity {
             }
         });
 
-       // method for back button
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Eventmain.class));
-                  finish();
-            }
-        });
+
 
         //method for event creation
         create = findViewById(R.id.create_btn);
@@ -185,6 +178,7 @@ public class Add_Event extends nav_activity {
 
 
                             Toasty.success(Add_Event.this, "Inserted successfully", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(Add_Event.this,Eventmain.class));
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

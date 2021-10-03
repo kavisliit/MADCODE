@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.madcode.R;
@@ -29,13 +28,13 @@ public class Sharebook_updatepage extends AppCompatActivity {
     EditText sbookname,sbookauthor,sbookcategory, sbookdes, surl;
     Button submit;
 
-    ImageButton buttonEdit,buttonDelete;
-    String SID ;
-    String txt = "not set";
-    String txt1 = "not set";
-    String txt2 = "not set";
-    String txt3 = "not set";
-    String txt4 = "not set";
+   // ImageButton buttonEdit,buttonDelete;
+    String ShareBookId ;
+    String sname = "not set";
+    String sname2 = "not set";
+    String sname3 = "not set";
+    String sname4 = "not set";
+    String sname5 = "not set";
     Task<Void> db;
 
     @Override
@@ -44,42 +43,42 @@ public class Sharebook_updatepage extends AppCompatActivity {
         setContentView(R.layout.activity_sharebook_updatepage);
 
         //connect to object to data base
-        sbookname=(EditText)findViewById(R.id.EditBookName);
-        sbookauthor =(EditText)findViewById(R.id.EditAuthursName);
-        sbookcategory=(EditText)findViewById(R.id.EditPublisherName);
-        sbookdes =(EditText)findViewById(R.id.EditBookDescription);
-        surl=(EditText)findViewById(R.id.Editreqimg);
-//        deleteBtn = findViewById(R.id.update_deletebutton);
+        sbookname=(EditText)findViewById(R.id.editsbookname);
+        sbookauthor =(EditText)findViewById(R.id.editsbookauthor);
+        sbookcategory=(EditText)findViewById(R.id.editsbookcategory);
+        sbookdes =(EditText)findViewById(R.id.editsbookdes);
+        surl=(EditText)findViewById(R.id.editsurl);
+
 
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            SID = extras.getString("SID");
-            txt = extras.getString("sbookname");
-            txt1 = extras.getString("sbookauthor");
-            txt2 = extras.getString("sbookcategory");
-            txt3 = extras.getString("sbookdes");
-            txt4 = extras.getString("surl");
+            ShareBookId = extras.getString("ShareBookId");
+            sname = extras.getString("sbookname");
+            sname2 = extras.getString("sbookcategory");
+            sname3 = extras.getString("sbookauthor");
+            sname4 = extras.getString("sbookdes");
+            sname5 = extras.getString("surl");
         }
 
-        sbookname.setText(txt);
-        sbookauthor.setText(txt1);
-        sbookcategory.setText(txt2);
-        sbookdes.setText(txt3);
-        surl.setText(txt4);
+        sbookname.setText(sname);
+        sbookcategory.setText(sname2);
+        sbookauthor.setText(sname3);
+        sbookdes.setText(sname4);
+        surl.setText(sname5);
 
 
         //complete button
-        submit=(Button)findViewById(R.id.EditSubmit);
+        submit=(Button)findViewById(R.id.updatesbook);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                txt  = sbookname.getText().toString();
-                txt1  = sbookauthor.getText().toString();
-                txt2  = sbookcategory.getText().toString();
-                txt3  = sbookdes.getText().toString();
-                txt4  = surl.getText().toString();
+                sname  = sbookname.getText().toString();
+                sname2  = sbookcategory.getText().toString();
+                sname3  = sbookauthor.getText().toString();
+                sname4  = sbookdes.getText().toString();
+                sname5  = surl.getText().toString();
 
                 if(TextUtils.isEmpty(sbookname.getText().toString()))
                 {
@@ -108,19 +107,19 @@ public class Sharebook_updatepage extends AppCompatActivity {
                 }
 
                 Map<String,Object> map = new HashMap<>();
-                map.put("sbookname",txt);
-                map.put("sbookauthor",txt1);
-                map.put("sbookcategory",txt2);
-                map.put("sbookdes",txt3);
-                map.put("surl",txt4);
+                map.put("sbookname",sname);
+                map.put("sbookcategory",sname2);
+                map.put("sbookauthor",sname3);
+                map.put("sbookdes",sname4);
+                map.put("surl",sname5);
 
 
-                db = FirebaseDatabase.getInstance().getReference("Modelshare").child(SID)
+                db = FirebaseDatabase.getInstance().getReference("sharebook").child(ShareBookId)
                         .updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
                                 Toast.makeText(Sharebook_updatepage.this, "success", Toast.LENGTH_SHORT).show();
-                                Intent in = new Intent(Sharebook_updatepage.this,Sharebook_viewpage.class);
+                                Intent in = new Intent(Sharebook_updatepage.this, Share_menu.class);
                                 startActivity(in);
                             }
                         });

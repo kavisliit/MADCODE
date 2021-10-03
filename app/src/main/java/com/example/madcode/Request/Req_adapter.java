@@ -50,6 +50,10 @@ public class Req_adapter extends RecyclerView.Adapter<Req_adapter.MyViewHolder>{
     public int getItemCount() {
         return list.size();
     }
+    public void filterList(ArrayList<reqmodal> filteredList){
+        list = filteredList;
+        notifyDataSetChanged();
+    }
     public static class MyViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
         TextView book_name,book_authur,book_publisher, book_description;
         ImageView ReqUrl;
