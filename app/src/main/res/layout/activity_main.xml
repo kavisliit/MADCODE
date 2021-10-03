@@ -22,12 +22,17 @@
 
     <ScrollView
 
-        android:layout_width="399dp"
-        android:layout_height="737dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="10dp"
         android:background="@color/white"
+        android:scrollbars="none"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:context=".MainActivity"
         tools:ignore="MissingConstraints">
 
@@ -38,25 +43,23 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout"
-                android:layout_width="374dp"
-                android:layout_height="977dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintHorizontal_bias="0.36"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView33"
                 tools:ignore="NotSibling">
 
                 <TextView
-                    android:id="@+id/textView42"
-                    android:layout_width="match_parent"
-                    android:layout_height="143dp" />
-
-                <TextView
                     android:id="@+id/textView33"
-                    android:layout_width="387dp"
-                    android:layout_height="36dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#C0EFB6"
                     android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:text="@string/menu_bo"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
@@ -69,8 +72,11 @@
                 <TextView
                     android:id="@+id/textView36"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:background="#C1EAC3"
                     android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:text="@string/Articles_title"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
@@ -83,8 +89,11 @@
                 <TextView
                     android:id="@+id/textView40"
                     android:layout_width="match_parent"
-                    android:layout_height="37dp"
+                    android:layout_height="wrap_content"
+                    android:background="#D6FBD7"
                     android:gravity="center"
+                    android:paddingEnd="5dp"
+                    android:paddingBottom="5dp"
                     android:text="@string/title_Request"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
@@ -97,8 +106,11 @@
                 <TextView
                     android:id="@+id/textView41"
                     android:layout_width="match_parent"
-                    android:layout_height="33dp"
+                    android:layout_height="wrap_content"
+                    android:background="#D1FBD2"
                     android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:text="@string/title_eve"
                     android:textColor="@color/black"
                     android:textIsSelectable="true"

@@ -58,25 +58,25 @@
 
 
     <ScrollView
-    android:id="@+id/scrollView2"
-    android:layout_width="325dp"
-    android:layout_height="456dp"
-    android:layout_marginTop="8dp"
+        android:id="@+id/scrollView2"
+        android:layout_width="325dp"
+        android:layout_height="427dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="14dp"
         android:background="@drawable/forget"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/nametext3"
-    app:layout_constraintVertical_bias="0.0"
-    tools:ignore="SpeakableTextPresentCheck">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nametext3"
+        tools:ignore="SpeakableTextPresentCheck">
 
-    <TextView
-        android:id="@+id/nametext4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:justificationMode="inter_word"
-        android:text="textMultiLine" />
-</ScrollView>
+        <TextView
+            android:id="@+id/nametext4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="textMultiLine" />
+    </ScrollView>
 
     <ImageButton
         android:id="@+id/btnBack"
@@ -94,6 +94,35 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/backbttn" />
+
+    <ImageButton
+        android:id="@+id/emailbutton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTintMode="screen"
+        android:contentDescription="TODO"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="@+id/image2"
+        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/image2"
+        app:srcCompat="@drawable/composing_mail_48px" />
+
+    <ImageButton
+        android:id="@+id/callbutton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:backgroundTintMode="screen"
+        android:contentDescription="TODO"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/image2"
+        app:layout_constraintEnd_toEndOf="@+id/image2"
+        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintStart_toStartOf="@+id/image2"
+        app:layout_constraintTop_toBottomOf="@+id/emailbutton"
+        app:layout_constraintVertical_bias="0.275"
+        app:srcCompat="@drawable/phone_64px" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
