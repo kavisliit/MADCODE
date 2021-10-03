@@ -30,7 +30,7 @@
             android:fontFamily="@font/roboto_medium"
             android:gravity="left"
             android:textColor="@color/main_color"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/textView24"
             app:layout_constraintStart_toEndOf="@+id/img_event"

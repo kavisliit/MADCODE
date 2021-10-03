@@ -2,15 +2,25 @@ package com.example.madcode.Article;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.madcode.Article.Model.ArticleModel;
+import com.example.madcode.Events.my_event_list;
+import com.example.madcode.MainActivity;
 import com.example.madcode.R;
+import com.example.madcode.Request.RequestBook;
+import com.example.madcode.Sharebook.Share_menu;
+import com.example.madcode.User.user_profile;
+import com.example.madcode.login;
+import com.example.madcode.nav_activity;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -22,7 +32,7 @@ import com.google.firebase.database.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class My_Article extends AppCompatActivity {
+public class My_Article extends nav_activity {
 
     //variables
 
@@ -40,10 +50,53 @@ public class My_Article extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_article);
-        //LayoutInflater inflater = LayoutInflater.from(this);
-        //View v = inflater.inflate(R.layout.activity_my_article,null,false);
-        //cl.addView(v,0);
+       // setContentView(R.layout.activity_my_article);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View v = inflater.inflate(R.layout.activity_my_article,null,false);
+        cl.addView(v,0);
+
+        DrawerLayout dl = findViewById(R.id.drawer);
+        NavigationView nav = findViewById(R.id.navwiew);
+        nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull @org.jetbrains.annotations.NotNull MenuItem item) {
+                switch (item.getItemId()){
+
+                    case R.id.home:
+                        startActivity(new Intent(My_Article.this, MainActivity.class));
+                        break;
+
+                    case R.id.profile:
+                        startActivity(new Intent(My_Article.this, user_profile.class));
+                        break;
+
+                    case R.id.mybooks:
+                        startActivity(new Intent(My_Article.this, Share_menu.class));
+                        break;
+
+                    case R.id.My_Requests:
+                        startActivity(new Intent(My_Article.this, RequestBook.class));
+                        break;
+
+                    case R.id.My_Articles:
+                        startActivity(new Intent(My_Article.this, My_Article.class));
+                        break;
+
+                    case R.id.My_Events:
+                        startActivity(new Intent(My_Article.this, my_event_list.class));
+                        break;
+
+                    case R.id.logout_2:
+                        FirebaseAuth.getInstance().signOut();
+                        startActivity(new Intent(My_Article.this, login.class));
+                        break;
+
+
+                }
+                return false;
+            }
+        });
+
 
 
         setOnClickListner();

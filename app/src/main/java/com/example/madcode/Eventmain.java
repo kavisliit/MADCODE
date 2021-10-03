@@ -24,6 +24,7 @@ import com.example.madcode.Events.my_event_list;
 import com.example.madcode.Request.CusRequestBook;
 import com.example.madcode.Request.RequestBook;
 import com.example.madcode.Sharebook.Share_menu;
+import com.example.madcode.Sharebook.Share_menu_Cus;
 import com.example.madcode.User.user_profile;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -76,7 +77,7 @@ public class  Eventmain extends nav_activity{
                         break;
 
                     case R.id.mybooks:
-                       // startActivity(new Intent(Eventmain.this, user_profile.class));
+                        startActivity(new Intent(Eventmain.this, Share_menu.class));
                         break;
 
                     case R.id.My_Requests:
@@ -92,7 +93,8 @@ public class  Eventmain extends nav_activity{
                         break;
 
                     case R.id.logout_2:
-                        //startActivity(new Intent(Eventmain.this, RequestBook.class));
+                        startActivity(new Intent(getApplicationContext(), CusRequestBook.class));
+                        overridePendingTransition(0,0);
                         break;
 
 
@@ -119,7 +121,7 @@ public class  Eventmain extends nav_activity{
                         return true;
 
                     case R.id.navigation_book:
-                        startActivity(new Intent(getApplicationContext(), Share_menu.class));
+                        startActivity(new Intent(getApplicationContext(), Share_menu_Cus.class));
                         overridePendingTransition(0,0);
                         return true;
 
