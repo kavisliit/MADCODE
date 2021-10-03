@@ -136,6 +136,7 @@
     <string name="title_eve">Events</string>
     <string name="my_share_books">My Share Books</string>
     <string name="share_boos_view">ShareBook View</string>
+    <string name="serach_event_txt">Enter keyword</string>
 
 
 </resources>
