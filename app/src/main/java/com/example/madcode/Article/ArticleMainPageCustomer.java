@@ -219,6 +219,7 @@ public class ArticleMainPageCustomer extends nav_activity {
                 in.putExtra("Sub_topic",list.get(position).getSub_topic());
                 in.putExtra("Description",list.get(position).getDescription());
                 in.putExtra("propic",list.get(position).getPurl());
+                in.putExtra("CurrentUserId",list.get(position).getCurrentUserId());
 
                 startActivity(in);
             }

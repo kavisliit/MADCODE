@@ -8,12 +8,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_event_cycel"
-        android:layout_width="390dp"
-        android:layout_height="579dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
+        android:layout_width="0dp"
+        android:layout_height="670dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,7 +21,7 @@
 
     <TextView
         android:id="@+id/textView30"
-        android:layout_width="384dp"
+        android:layout_width="0dp"
         android:layout_height="49dp"
         android:background="@color/main_color"
         android:fontFamily="@font/roboto_medium"
@@ -52,9 +50,8 @@
         android:id="@+id/created_event_button"
         android:layout_width="56dp"
         android:layout_height="64dp"
-        android:layout_marginTop="572dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginTop="636dp"
+        android:layout_marginEnd="44dp"
         android:clickable="true"
         android:onClick="addev"
         app:backgroundTint="@color/main_color"
