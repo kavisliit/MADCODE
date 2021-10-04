@@ -2,6 +2,7 @@ package com.example.madcode.Events;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.view.View;
@@ -35,6 +36,7 @@ import es.dmoral.toasty.Toasty;
 public class event_profile extends AppCompatActivity {
     DatabaseReference database,db;
     TextView tw1,tw2,tw3,tw4,tw5,tw6;
+    ImageView phone1,email1;
     User ev;
     ImageView mem,img,com;
     CircleImageView ci;
@@ -45,6 +47,7 @@ public class event_profile extends AppCompatActivity {
     int in = 0,count = 0;
     String newid;
     String eventname = null;
+    String email,phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +65,26 @@ public class event_profile extends AppCompatActivity {
         join = findViewById(R.id.join_btn_ev);
         img = findViewById(R.id.members_btn_event);
         com = findViewById(R.id.event_profile_comment_btn);
+        phone1 = findViewById(R.id.call_owner);
+        email1 = findViewById(R.id.mail_owner);
+
+        phone1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:"+phone));
+                startActivity(intent);
+            }
+        });
+
+        email1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:"+email));
+                startActivity(intent);
+            }
+        });
 
         String curid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -185,6 +208,27 @@ public class event_profile extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+
+        database = FirebaseDatabase.getInstance().getReference("Users");
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dn:snapshot.getChildren()){
+                    String id = dn.getKey();
+                    User ob = dn.getValue(User.class);
+                    if(cid2.equals(id)){
+                        phone = ob.phone;
+                        email = ob.email;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         int nmax = Integer.parseInt(max);
         String finalType = type;
