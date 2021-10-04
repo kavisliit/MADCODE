@@ -89,7 +89,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_lock_open_24" />
+        app:srcCompat="@drawable/ic_baseline_lock_open_24"
+        tools:ignore="VectorDrawableCompat" />
 
     <TextView
         android:id="@+id/textView7"
