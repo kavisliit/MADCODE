@@ -22,12 +22,17 @@
 
     <ScrollView
 
-        android:layout_width="399dp"
-        android:layout_height="737dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="10dp"
         android:background="@color/white"
+        android:scrollbars="none"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView39"
         tools:context=".MainActivity"
         tools:ignore="MissingConstraints">
 
@@ -38,25 +43,23 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout"
-                android:layout_width="374dp"
-                android:layout_height="977dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintHorizontal_bias="0.36"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView33"
                 tools:ignore="NotSibling">
 
                 <TextView
-                    android:id="@+id/textView42"
-                    android:layout_width="match_parent"
-                    android:layout_height="143dp" />
-
-                <TextView
                     android:id="@+id/textView33"
-                    android:layout_width="387dp"
-                    android:layout_height="36dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#C0EFB6"
                     android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:text="@string/menu_bo"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
@@ -64,13 +67,18 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/book_recycle"
                     android:layout_width="match_parent"
-                    android:layout_height="169dp" />
+                    android:layout_height="169dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
 
                 <TextView
                     android:id="@+id/textView36"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:background="#C1EAC3"
                     android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:text="@string/Articles_title"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
@@ -78,13 +86,18 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/article_recycle_main"
                     android:layout_width="match_parent"
-                    android:layout_height="171dp" />
+                    android:layout_height="171dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
 
                 <TextView
                     android:id="@+id/textView40"
                     android:layout_width="match_parent"
-                    android:layout_height="37dp"
+                    android:layout_height="wrap_content"
+                    android:background="#D6FBD7"
                     android:gravity="center"
+                    android:paddingEnd="5dp"
+                    android:paddingBottom="5dp"
                     android:text="@string/title_Request"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
@@ -92,13 +105,18 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/request_recycle"
                     android:layout_width="match_parent"
-                    android:layout_height="172dp" />
+                    android:layout_height="172dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
 
                 <TextView
                     android:id="@+id/textView41"
                     android:layout_width="match_parent"
-                    android:layout_height="33dp"
+                    android:layout_height="wrap_content"
+                    android:background="#D1FBD2"
                     android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:text="@string/title_eve"
                     android:textColor="@color/black"
                     android:textIsSelectable="true"
@@ -107,10 +125,28 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/event_recycle"
                     android:layout_width="match_parent"
-                    android:layout_height="179dp" />
+                    android:layout_height="179dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
             </LinearLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/madGreen"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:text="@string/home_title"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

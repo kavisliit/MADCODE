@@ -16,11 +16,11 @@ public class Sharebook_viewpage_cus extends AppCompatActivity {
 
 
     String ShareBookId ;
-    String sname = "not set";
-    String sname2 = "not set";
-    String sname3 = "not set";
-    String sname4 = "not set";
-    String sname5 = "not set";
+    String sbname = "not set";
+    String sbname2 = "not set";
+    String sbname3 = "not set";
+    String sbname4 = "not set";
+    String sbname5 = "not set";
 
 
     @Override
@@ -43,18 +43,18 @@ public class Sharebook_viewpage_cus extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             ShareBookId = extras.getString("ShareBookId");
-            sname = extras.getString("sbookname");
-            sname2 = extras.getString("sbookcategory");
-            sname3 = extras.getString("sbookauthor");
-            sname4 = extras.getString("sbookdes");
-            sname5 = extras.getString("surl");
+            sbname = extras.getString("sbookname");
+            sbname2 = extras.getString("sbookcategory");
+            sbname3 = extras.getString("sbookauthor");
+            sbname4 = extras.getString("sbookdes");
+            sbname5 = extras.getString("surl");
         }
 
-        sbookname.setText(sname);
-        sbookcategory.setText(sname2);
-        sbookauthor.setText(sname3);
-        sbookdes.setText(sname4);
-        Glide.with(this).load(sname5).into(surl);
+        sbookname.setText(sbname);
+        sbookcategory.setText(sbname2);
+        sbookauthor.setText(sbname3);
+        sbookdes.setText(sbname4);
+        Glide.with(this).load(sbname5).into(surl);
     }
 
 

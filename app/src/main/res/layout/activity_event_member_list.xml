@@ -22,26 +22,28 @@
 
     <TextView
         android:id="@+id/event_name_list"
-        android:layout_width="268dp"
-        android:layout_height="49dp"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/madgreen"
         android:fontFamily="@font/roboto_medium"
+        android:gravity="center"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/memebr_list_recycle_view"
         app:layout_constraintEnd_toEndOf="@+id/member_list_img"
-        app:layout_constraintStart_toStartOf="@+id/member_list_img" />
+        app:layout_constraintStart_toStartOf="@+id/member_list_img"
+        app:layout_constraintTop_toBottomOf="@+id/divider11" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/memebr_list_recycle_view"
-        android:layout_width="392dp"
-        android:layout_height="500dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider11" />
+        app:layout_constraintTop_toBottomOf="@+id/event_name_list" />
 
     <View
         android:id="@+id/divider11"
@@ -55,9 +57,8 @@
 
     <ImageView
         android:id="@+id/member_list_img"
-        android:layout_width="391dp"
+        android:layout_width="0dp"
         android:layout_height="168dp"
-        android:layout_marginTop="1dp"
         app:layout_constraintBottom_toTopOf="@+id/divider11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,6 +69,8 @@
         android:id="@+id/back_btn_profile"
         android:layout_width="41dp"
         android:layout_height="35dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/backbttn" />
