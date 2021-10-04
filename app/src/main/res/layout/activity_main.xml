@@ -25,14 +25,14 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="10dp"
         android:background="@color/white"
         android:scrollbars="none"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView39"
         tools:context=".MainActivity"
         tools:ignore="MissingConstraints">
 
@@ -67,7 +67,9 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/book_recycle"
                     android:layout_width="match_parent"
-                    android:layout_height="169dp" />
+                    android:layout_height="169dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
 
                 <TextView
                     android:id="@+id/textView36"
@@ -84,7 +86,9 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/article_recycle_main"
                     android:layout_width="match_parent"
-                    android:layout_height="171dp" />
+                    android:layout_height="171dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
 
                 <TextView
                     android:id="@+id/textView40"
@@ -101,7 +105,9 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/request_recycle"
                     android:layout_width="match_parent"
-                    android:layout_height="172dp" />
+                    android:layout_height="172dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
 
                 <TextView
                     android:id="@+id/textView41"
@@ -119,10 +125,28 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/event_recycle"
                     android:layout_width="match_parent"
-                    android:layout_height="179dp" />
+                    android:layout_height="179dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
             </LinearLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/madGreen"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:text="@string/home_title"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

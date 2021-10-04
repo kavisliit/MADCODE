@@ -8,13 +8,13 @@
 
     <ImageView
         android:id="@+id/my_event_selected_pic"
-        android:layout_width="384dp"
+        android:layout_width="0dp"
         android:layout_height="197dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="centerCrop"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
